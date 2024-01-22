@@ -1,1 +1,3 @@
-# BitacorasSC2024-10
+# Bitácoras de aprendizaje del curso Sistemas Computacionales
+
+Deja este archivo disponible para el profesor
