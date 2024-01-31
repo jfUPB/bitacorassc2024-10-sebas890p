@@ -24,3 +24,19 @@ De la forma algebraica:
 
 ## A∧B
 
+Ahora observa el video 7. Inventa una tabla de verdad de tres entradas y una salida. ¿Cuál es la función booleana que la representa?
+
+```css
+| A | B | C |   X   |
+|---|---|---|-------|
+| 0 | 0 | 0 |   1   |
+| 0 | 0 | 1 |   0   |
+| 0 | 1 | 0 |   1   |
+| 0 | 1 | 1 |   1   |
+| 1 | 0 | 0 |   0   |
+| 1 | 0 | 1 |   1   |
+| 1 | 1 | 0 |   0   |
+| 1 | 1 | 1 |   1   |
+```
+
+
