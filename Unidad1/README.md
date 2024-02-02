@@ -112,3 +112,28 @@ hay dos motivos principales
 Eficiencia en el uso de recursos: La lógica combinacional permite realizar múltiples operaciones en un solo ciclo de reloj, lo que reduce el número de componentes necesarios en el circuito.
 
 Flexibilidad en la ejecución de instrucciones: La lógica secuencial permite almacenar y manipular información a lo largo del tiempo, lo que es necesario para ejecutar instrucciones de un programa.
+
+Observa el video 26, unidad 4.1. ¿Cuál es la diferencia entre el lenguaje ensamblador y el lenguaje de máquina?
+
+Lenguaje de Máquina:
+
+Instrucciones codificadas en binario.
+Difícil de entender y específico para cada CPU.
+No requiere traducción directa por la CPU.
+
+Lenguaje Ensamblador:
+
+Utiliza mnemotécnicos en lugar de binario.
+Más legible y amigable para programadores.
+Requiere un ensamblador para traducir a lenguaje de máquina.
+Relativamente más portable entre arquitecturas.
+
+Observa el video 22. ¿Cómo funciona una memoria memoria RAM? ¿Cuál es la relación entre el bus de direcciones y la salida cuando el bit de load es 0 y cuando es 1?
+
+Una memoria RAM (Random Access Memory) es un tipo de memoria de acceso aleatorio que se utiliza para almacenar temporalmente los datos que el procesador necesita para realizar sus operaciones. La RAM permite un acceso rápido a los datos, ya que cualquier posición de memoria puede ser accedida en un tiempo constante.
+
+Cuando el bit de load es 1, significa que el procesador está realizando una operación de lectura o escritura en la memoria. En este caso, la salida del bus de direcciones es la dirección de memoria a la que se desea acceder. 
+
+Observa el video 23. ¿Cuál es la función del program counter en un computador?
+
+El program counter es un registro en un computador que contiene la dirección de memoria de la siguiente instrucción que el procesador debe ejecutar. Cuando el procesador ejecuta una instrucción, el program counter se actualiza para apuntar a la siguiente instrucción en la secuencia de instrucciones
