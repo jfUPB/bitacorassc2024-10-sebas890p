@@ -53,7 +53,7 @@ overflow en una suma binaria ocurre en el momento en el que el resultado de una 
 
 Observa el video 16. ¿Cómo se representan números enteros negativos en un computador en complemento a dos? Construye una tabla que represente un conjunto de número enteros positivos y negativos usando 4 bits.
 
-para representar un bit en negativo, hay que invertir el resultado del bit positivo y agregar un 1 al finalm del resultado como lo muestro en la tabala 
+para representar un bit en negativo, hay que invertir el resultado del bit positivo y agregar un 1 al final del resultado como lo muestro en la tabla 
 
 
 | Decimal | Binario (4 bits) | 
@@ -137,3 +137,9 @@ Cuando el bit de load es 1, significa que el procesador está realizando una ope
 Observa el video 23. ¿Cuál es la función del program counter en un computador?
 
 El program counter es un registro en un computador que contiene la dirección de memoria de la siguiente instrucción que el procesador debe ejecutar. Cuando el procesador ejecuta una instrucción, el program counter se actualiza para apuntar a la siguiente instrucción en la secuencia de instrucciones
+
+
+## Semana 3 
+## Clase 5-02
+
+silicon zeroes
