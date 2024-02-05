@@ -142,4 +142,4 @@ El program counter es un registro en un computador que contiene la dirección de
 ## Semana 3 
 ## Clase 5-02
 
-silicon zeroes
+En esta sesion el profesor utilizo un juego llamado silicon zeroes para explicarnos varias funciones propuestas en las preguntas ya respondidas anteriormente,  me quedaron mas claros los conceptos de un contador y la logica secuencial 
