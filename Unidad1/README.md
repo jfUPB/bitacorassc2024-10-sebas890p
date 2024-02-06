@@ -144,4 +144,7 @@ El program counter es un registro en un computador que contiene la dirección de
 ## Semana 3 
 ## Clase 5-02
 
-En esta sesion el profesor utilizo un juego llamado silicon zeroes para explicarnos varias funciones propuestas en las preguntas ya respondidas anteriormente,  me quedaron mas claros los conceptos de un contador y la logica secuencial 
+En esta sesion el profesor utilizo un juego llamado silicon zeroes para explicarnos varias funciones propuestas en las preguntas ya respondidas anteriormente, este juego se trata de ir resolviendo puzles para asi ir armando y entendiendo el funcionamiento de algunas placas computacionales, con la utilizacion del juego me quedaron mas claros los conceptos de contador y la logica secuencial a su vez tambien como funciona una memoria que se divide por slots y cada slot tiene una escritura, esta escritura funciona con ticks como se nuestra en el video.
+![fEe2sr](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/6e3755ee-7a4c-45c5-8944-7519ad5a5d5b)
+
+
