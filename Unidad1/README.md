@@ -105,6 +105,8 @@ Lógica secuencial:
 La lógica secuencial es aquella que maneja la información en función del tiempo. Es decir, la salida de un circuito secuencial puede variar en función de los valores de entrada y del estado interno del circuito.
 Los circuitos secuenciales tienen memoria y estado interno. Por lo tanto, si se activan las entradas de manera diferente, la salida puede variar incluso si las entradas son las mismas.
 
+## Trabajo autonomo
+
 Observa el video 21. ¿Por qué se combina lógica combinacional y secuencial para construir un computador?
 
 hay dos motivos principales
