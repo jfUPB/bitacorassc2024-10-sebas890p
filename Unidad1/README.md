@@ -185,6 +185,9 @@ En esta sesion el profesor utilizo un juego llamado silicon zeroes para explicar
 este juego se trata de ir resolviendo puzles para asi ir armando y entendiendo el funcionamiento de algunas placas computacionales, con la utilizacion del juego me quedaron mas claros los conceptos de contador y la logica secuencial a su vez tambien como funciona una memoria que se divide por slots y cada slot tiene una escritura, esta escritura funciona con ticks como se nuestra en el video.
 ![fEe2sr](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/6e3755ee-7a4c-45c5-8944-7519ad5a5d5b)
 
+#### Micro-sesión 3
+
+Continuamos realizando los niveles del juego entre todos.
 
 
 ### Sesión 2 miércoles febrero 7
@@ -197,3 +200,15 @@ En esta sesion el profesor nos hizo una introduccion de lo que relizaremos en el
 #### Micro-sesión 2
 
 estuve revisando mi bitacora a la vez que el profesor mostraba la estructura ideal para realizar la bitacora, luego de esto procedi a editar y organizar mi bitacora colocando cada micro sesion como se puede ver relfejado. 
+
+#### Micro-sesión 3
+
+Iniciamos junto al profesor a aprender sobre el lenguaje ensamblador, realizamos algunos ejemplos de intrucciones tipo A y tipo C, JUMP funciona para indicar que salte lineas.
+
+adjunto una imagen del resultado 
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/5d4232c9-b0dc-4593-8363-e8bc3cbf9afa)
+
+#### Micro-sesión 4: cierre 
+
+En esta sesion cumpli con el proposito de apertura, pude aprender y organizar la estructura de bitacora en una forma mas estetica y organizada, tambien aprendi algunos conceptos sobre el lenguaje ensamblador que luego pase al CPU emulator.
