@@ -29,7 +29,7 @@ la tabla de la verdad seria:
 
 De la forma algebraica:
 
-## A∧B
+ A∧B
 
 Ahora observa el video 7. Inventa una tabla de verdad de tres entradas y una salida. ¿Cuál es la función booleana que la representa?
 
