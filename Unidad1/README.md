@@ -1,9 +1,16 @@
  # Bitácora de aprendizaje
-## Semana 2 clase 29-01 
+ 
+## Semana 2 
+
+### Sesión 1 lunes enero 29
+
+#### Micro-sesión 1: apertura.
 
 Comenzamos la clase guiada por el profesor, dando una introduccion de lo que se trata esta unidad 1, me parecio muy interesante el como llegaremos a entender como funciona una CPU mas a fondo. tambien se propuso un reto que haremos en la semana 5 que se trata de construir una aplicacion interactiva en lenguaje ensamblador.
 
 Mi plan para esta sesion para poder entender y hacer este reto sera proceder a responder algunas de las preguntas planteadas por el profesor a la par que ir investigando las dudas que se me vayan presentando mientras hago esto.
+
+#### Micro-sesión 2
 
 Los computadores digitales modernos funcionan gracias a la teoría de la lógica booleana. observa el video 6, unidad 1.1. de este playlist. Selecciona una función booleana. Representa dicha operación de dos maneras diferentes. ¿Pudiste observar en el video esas dos maneras?
 
@@ -43,6 +50,10 @@ Observa el video 14, unidad 2.1. ¿Cuántos números diferentes puede representa
 
 Un computador de 8 bits puede representar hasta 256 numeros diferentes esto se debe a que cada bit puede tener dos estados posibles: 0 o 1.
 
+
+#### Micro-sesión 3
+
+
 ¿Cuál es la representación binaria del número en 8 bits del número 128?
 
 la representacion en 8 bits de 128 es: 10000000 ya que cada numero esta multiplicado x 2 y potenciado en su ubicacion, por ese motivo el 1 se ubica en el primero lugar, 1x2 potenciado a la 7 seria 128 y los demas bits no tendrian valor. 
@@ -63,9 +74,15 @@ para representar un bit en negativo, hay que invertir el resultado del bit posit
 |   -1    |       1111        |
 |   -2    |       1110        |          
 
-##  clase 31-01 
+
+
+### Sesión 2 miércoles enero 31
+
+#### Micro-sesión 1: apertura.
 
 Esta sesion comenzo una explicacion muy interesante dada por el profesor, donde son explicaba de forma verbal y ilustrativa el funcionamiento de una cpu en su interior, como funcionaba hace varios años atras, como funciona en la actualidad y como puede llegar a funcionar siendo ya computadores cuanticos, luego de la explicacion segui respiendo algunas de las preguntas y viendo los videos propuestos. 
+
+#### Micro-sesión 2
 
 Observa el video 17. ¿Qué es una unidad aritmética lógica? ¿Qué se puede hacer si una función no está implementada en la ALU?
 
@@ -87,6 +104,9 @@ Microprogramación: A veces la ALU puede ser programada a un nivel más bajo uti
 Incorporar Funciones Adicionales: En algunos casos, una nueva versión de la ALU puede ser diseñada e implementada con funciones adicionales.
 
 Uso de Instrucciones Múltiples: Puede ser posible realizar la operación deseada mediante una secuencia de instrucciones que utiliza las funciones estándar de la ALU.
+
+#### Micro-sesión 3
+
 
 ¿La ALU del video anterior puede multiplicar? ¿Cómo podrías resolver por software la multiplicación?
 
@@ -167,4 +187,4 @@ En esta sesion el profesor nos hizo una introduccion de lo que relizaremos en el
 
 #### Micro-sesión 2
 
-
+estuve revisando mi bitacora a la vez que el profesor mostraba la estructura ideal para realizar la bitacora, luego de esto procedi a editar y organizar mi bitacora colocando cada micro sesion como se puede ver relfejado. 
