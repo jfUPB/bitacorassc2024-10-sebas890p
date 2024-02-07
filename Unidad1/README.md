@@ -75,8 +75,12 @@ para representar un bit en negativo, hay que invertir el resultado del bit posit
 |   -2    |       1110        |          
 
 
+#### Micro-sesión 4: cierre 
+
+
 
 ### Sesión 2 miércoles enero 31
+
 
 #### Micro-sesión 1: apertura.
 
@@ -124,6 +128,11 @@ Lógica secuencial:
 
 La lógica secuencial es aquella que maneja la información en función del tiempo. Es decir, la salida de un circuito secuencial puede variar en función de los valores de entrada y del estado interno del circuito.
 Los circuitos secuenciales tienen memoria y estado interno. Por lo tanto, si se activan las entradas de manera diferente, la salida puede variar incluso si las entradas son las mismas.
+
+
+#### Micro-sesión 4: cierre 
+
+
 
 ### Sesion 3 
 
