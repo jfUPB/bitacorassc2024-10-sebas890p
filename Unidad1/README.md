@@ -84,7 +84,7 @@ para representar un bit en negativo, hay que invertir el resultado del bit posit
 
 #### Micro-sesión 1: apertura.
 
-Esta sesion comenzo una explicacion muy interesante dada por el profesor, donde son explicaba de forma verbal y ilustrativa el funcionamiento de una cpu en su interior, como funcionaba hace varios años atras, como funciona en la actualidad y como puede llegar a funcionar siendo ya computadores cuanticos, luego de la explicacion segui respiendo algunas de las preguntas y viendo los videos propuestos. 
+Esta sesion comenzo una explicacion muy interesante dada por el profesor, donde son explicaba de forma verbal y ilustrativa el funcionamiento de una cpu en su interior, como funcionaba hace varios años atras, como funciona en la actualidad y como puede llegar a funcionar siendo ya computadores cuanticos, luego de la explicacion segui respoiendo algunas de las preguntas y viendo los videos propuestos. 
 
 #### Micro-sesión 2
 
@@ -132,9 +132,17 @@ Los circuitos secuenciales tienen memoria y estado interno. Por lo tanto, si se 
 
 #### Micro-sesión 4: cierre 
 
+Esta semana semana de clase fue muy productiva ya que la apertura de la sesion 1 fue lo interesante que puede llegar aser aprender el funcionamiento interno de una placa de cumputacion y a medida de la semana pude aprender un poco sobre eso respondiendo y viendo los videos de las preguntas, ademas de las explicaciones ilustradas por el profesor. 
 
 
 ### Sesion 3 
+
+#### Micro-sesión 1: apertura. 
+me propuse a ver los videos y responder sus respectivas preguntas.
+
+
+#### Micro-sesión 2
+
 
 Observa el video 21. ¿Por qué se combina lógica combinacional y secuencial para construir un computador?
 
@@ -159,15 +167,21 @@ Más legible y amigable para programadores.
 Requiere un ensamblador para traducir a lenguaje de máquina.
 Relativamente más portable entre arquitecturas.
 
-Observa el video 22. ¿Cómo funciona una memoria memoria RAM? ¿Cuál es la relación entre el bus de direcciones y la salida cuando el bit de load es 0 y cuando es 1?
+#### Micro-sesión 3
+
+Observa el video 22. ¿Cómo funciona una memoria memoria RAM?
 
 Una memoria RAM (Random Access Memory) es un tipo de memoria de acceso aleatorio que se utiliza para almacenar temporalmente los datos que el procesador necesita para realizar sus operaciones. La RAM permite un acceso rápido a los datos, ya que cualquier posición de memoria puede ser accedida en un tiempo constante.
+
+¿Cuál es la relación entre el bus de direcciones y la salida cuando el bit de load es 0 y cuando es 1?
 
 Cuando el bit de load es 1, significa que el procesador está realizando una operación de lectura o escritura en la memoria. En este caso, la salida del bus de direcciones es la dirección de memoria a la que se desea acceder. 
 
 Observa el video 23. ¿Cuál es la función del program counter en un computador?
 
 El program counter es un registro en un computador que contiene la dirección de memoria de la siguiente instrucción que el procesador debe ejecutar. Cuando el procesador ejecuta una instrucción, el program counter se actualiza para apuntar a la siguiente instrucción en la secuencia de instrucciones
+
+![IMG00007](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/0a5b644e-5a84-4b9d-8ca9-5400f80390c3)
 
 
 ## Semana 3 
@@ -217,4 +231,49 @@ En esta sesion cumpli con el proposito de apertura, pude aprender y organizar la
 
 #### Micro-sesión 1: apertura.
 
+En esta sesion de trabajo autonomo me dedique a relizar las preguntas que tenia faltantes y ver en youtube como resolvian el nivel de la vaca en silicon zeroes ya que no puedo jugargo por lo que es de pago.
 
+#### Micro-sesión 2
+Ahora observa el video 7. Inventa una tabla de verdad de tres entradas y una salida. ¿Cuál es la función booleana que la representa?
+
+```css
+| A | B | C |   X   |
+|---|---|---|-------|
+| 0 | 0 | 0 |   1   |  (NOT a AND NOT b AND NOT c)
+| 0 | 0 | 1 |   0   |
+| 0 | 1 | 0 |   1   |  (NOT a AND b AND NOT c)
+| 0 | 1 | 1 |   1   |  (NOT a AND b AND c)
+| 1 | 0 | 0 |   0   |                                   
+| 1 | 0 | 1 |   1   |  (AND a AND NOT b AND c)    
+| 1 | 1 | 0 |   0   |
+| 1 | 1 | 1 |   1   |  (AND a AND b AND c)
+```
+
+Observa el video 14, unidad 2.1. ¿Cuántos números diferentes puede representar un computador de 8 bits?
+
+Un computador de 8 bits puede representar hasta 256 numeros diferentes esto se debe a que cada bit puede tener dos estados posibles: 0 o 1.
+
+#### Micro-sesión 3
+Observa el video 22. ¿Cómo funciona una memoria memoria RAM?
+
+Una memoria RAM (Random Access Memory) es un tipo de memoria de acceso aleatorio que se utiliza para almacenar temporalmente los datos que el procesador necesita para realizar sus operaciones. La RAM permite un acceso rápido a los datos, ya que cualquier posición de memoria puede ser accedida en un tiempo constante.
+bserva el video 20, unidad 3.1. ¿Cuál es la diferencia entre la lógica combinacional y la lógica secuencial?
+
+Lógica combinacional:
+
+La lógica combinacional es aquella que maneja la información de manera instantánea. Es decir, la salida de un circuito combinacional depende únicamente de los valores de entrada en ese momento.
+Los circuitos combinacionales no tienen memoria ni estado interno. Por lo tanto, no importa cuándo se activan las entradas, siempre que las entradas sean las mismas, la salida será la misma.
+
+
+Lógica secuencial:
+
+La lógica secuencial es aquella que maneja la información en función del tiempo. Es decir, la salida de un circuito secuencial puede variar en función de los valores de entrada y del estado interno del circuito.
+Los circuitos secuenciales tienen memoria y estado interno. Por lo tanto, si se activan las entradas de manera diferente, la salida puede variar incluso si las entradas son las mismas.
+
+#### Micro-sesión 4
+
+Estuve viendo como una persona llamda DDRJake pasaba el nivel de la vaca en silicon zeroes
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/a208f550-6e51-4d38-a0cc-1c175c5014d3)
+
+
+En la imegen vemos que usa 9 modulos en total entre esos 2 latchs 1 lector y 1 escritor de memoria, el parte de la ecucacion explicada por el profesor en clase del numero anterior mas el tercer numero anterior.
