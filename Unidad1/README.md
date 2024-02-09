@@ -212,3 +212,9 @@ adjunto una imagen del resultado
 #### Micro-sesión 4: cierre 
 
 En esta sesion cumpli con el proposito de apertura, pude aprender y organizar la estructura de bitacora en una forma mas estetica y organizada, tambien aprendi algunos conceptos sobre el lenguaje ensamblador que luego pase al CPU emulator.
+
+### Sesion 3 jueves 8 de febrero 
+
+#### Micro-sesión 1: apertura.
+
+
