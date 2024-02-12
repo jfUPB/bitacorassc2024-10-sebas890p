@@ -322,6 +322,8 @@ De esta forma se puede dibujar en la pantalla
 JEQ ES SALTO SI D ES IGUAL A 0
 
 ![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/07f22855-6035-4542-b8a9-d7bd3ed4e299)
+
+
 en este ejemplo terminamos de ver los saltos, los labels, el teclado y el display. 
 
 #### Micro-sesión 4 cierre
