@@ -270,10 +270,57 @@ Lógica secuencial:
 La lógica secuencial es aquella que maneja la información en función del tiempo. Es decir, la salida de un circuito secuencial puede variar en función de los valores de entrada y del estado interno del circuito.
 Los circuitos secuenciales tienen memoria y estado interno. Por lo tanto, si se activan las entradas de manera diferente, la salida puede variar incluso si las entradas son las mismas.
 
-#### Micro-sesión 4
+#### Micro-sesión 4 cierre
 
 Estuve viendo como una persona llamda DDRJake pasaba el nivel de la vaca en silicon zeroes
 ![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/a208f550-6e51-4d38-a0cc-1c175c5014d3)
 
 
 En la imegen vemos que usa 9 modulos en total entre esos 2 latchs 1 lector y 1 escritor de memoria, el parte de la ecucacion explicada por el profesor en clase del numero anterior mas el tercer numero anterior.
+
+
+## Semana 4
+
+### Sesión 1 lunes febrero 12 
+
+#### Micro-sesión 1: apertura.
+ Esta sesion sera guiada por el profesor y estaremos tocando los siguientes temas:
+ 
+ labels.
+ 
+ variables.
+ 
+ saltos.
+ 
+ I/O: teclado, display.
+ 
+ algunas estructuras de control.
+
+#### Micro-sesión 2
+
+Con las intrucciones tipo A funcionan para meter numeros en A solo numeris positivos y en las intrucciones tipo C hay un destino = operacion;salto 
+
+1. variables, estas en un pc viven es en la RAM, estas se crean de la siguiente forma
+ ![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/f4af2596-85ba-4580-ac83-619f19469364)
+
+M : leer la memoria porque esta al lado derecha del = 
+a la izquierda del = va el destino 
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/2d6f6c8f-fd0d-4aca-80f0-165f4ba0a31a)
+
+
+
+
+#### Micro-sesión 3
+
+De esta forma se puede dibujar en la pantalla 
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/994cd776-086f-4429-be6f-185281a82bd0)
+
+JEQ ES SALTO SI D ES IGUAL A 0
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/07f22855-6035-4542-b8a9-d7bd3ed4e299)
+en este ejemplo terminamos de ver los saltos, los labels, el teclado y el display. 
+
+#### Micro-sesión 4 cierre
+
+Esta sesion ayudo mucho para expandir el conocimiento en las sintaxis y la estructura del lenguaje emsanblador, aprendi un poco sobre todos los temas propuestos en la apertura mientras seguia los ejercicios que realizaba el profesor, despues de esta sesion se me aclararon mas las cosas para realizar el reto final. 
