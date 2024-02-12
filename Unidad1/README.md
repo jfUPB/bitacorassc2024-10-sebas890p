@@ -301,10 +301,13 @@ En la imegen vemos que usa 9 modulos en total entre esos 2 latchs 1 lector y 1 e
 Con las intrucciones tipo A funcionan para meter numeros en A solo numeris positivos y en las intrucciones tipo C hay un destino = operacion;salto 
 
 1. variables, estas en un pc viven es en la RAM, estas se crean de la siguiente forma
- ![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/f4af2596-85ba-4580-ac83-619f19469364)
+  
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/f4af2596-85ba-4580-ac83-619f19469364)
 
 M : leer la memoria porque esta al lado derecha del = 
 a la izquierda del = va el destino 
+
+
 ![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/2d6f6c8f-fd0d-4aca-80f0-165f4ba0a31a)
 
 
