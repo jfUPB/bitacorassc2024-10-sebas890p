@@ -337,18 +337,32 @@ Esta sesion ayudo mucho para expandir el conocimiento en las sintaxis y la estru
 
 #### Micro-sesión 1: apertura.
 
+Esta sesion el profesor nos indico que iba a ser autonoma, nos indico que seria bueno que empezaramos a hacer el reto final o que al menos empezaramos a hacer codigo en lenguaje ensamblador.
 
 
 #### Micro-sesión 2
+
+Comence buscando y haciendo experimentos sobre como pintar los pixeles pero realmente no encontre informacion sobre esto, solo consegui que se escribiera en la memoria 24576 un valor distinto depiendo la letra presionada
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/91a02840-237b-4c88-aaf9-b896985d921a)
 
 
 
 #### Micro-sesión 3
 
+en esta  micro sesion segui haciendo pruebas pero no consegui nada distinto a lo anterior por lo que buscando video encontre proyectos interesantes que se pueden hacer en cpu emulator 
+
+https://www.youtube.com/watch?v=NMG-7e7d_jE
+
+en el link de arriba se puede ver un proyecto de pin pon en cpu emulator 
+
+el siguiente video me sorpendio mucho es todo un juego de disparos
+
+https://www.youtube.com/watch?v=inFJ5EyOhpM
 
 #### Micro-sesión 4 cierre
 
-
+de esta sesion llego a concluir que debo buscar mas y aprender mas sobre las direcciones de entradas a la pantalla y las posiciones de los pixeles. 
 
 
 ### Sesion 3 jueves 15 de febrero 
