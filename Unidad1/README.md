@@ -329,3 +329,44 @@ en este ejemplo terminamos de ver los saltos, los labels, el teclado y el displa
 #### Micro-sesión 4 cierre
 
 Esta sesion ayudo mucho para expandir el conocimiento en las sintaxis y la estructura del lenguaje emsanblador, aprendi un poco sobre todos los temas propuestos en la apertura mientras seguia los ejercicios que realizaba el profesor, despues de esta sesion se me aclararon mas las cosas para realizar el reto final. 
+
+
+
+## Semana 4
+
+### Sesión 1 miercoles febrero 14
+
+#### Micro-sesión 1: apertura.
+
+
+
+#### Micro-sesión 2
+
+
+
+#### Micro-sesión 3
+
+
+#### Micro-sesión 4 cierre
+
+
+
+
+### Sesion 3 jueves 15 de febrero 
+
+#### Micro-sesión 1: apertura.
+
+
+
+#### Micro-sesión 2
+
+
+
+#### Micro-sesión 3
+
+
+#### Micro-sesión 4
+
+
+
+#### Micro-sesión 5 cierre
