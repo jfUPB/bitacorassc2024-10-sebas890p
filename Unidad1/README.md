@@ -344,7 +344,8 @@ Esta sesion el profesor nos indico que iba a ser autonoma, nos indico que seria 
 
 Comence buscando y haciendo experimentos sobre como pintar los pixeles pero realmente no encontre informacion sobre esto, solo consegui que se escribiera en la memoria 24576 un valor distinto depiendo la letra presionada
 
-![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/91a02840-237b-4c88-aaf9-b896985d921a)
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/23c684bb-0c40-47b8-853f-0ba6d1e6c209)
 
 
 
