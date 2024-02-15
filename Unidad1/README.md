@@ -332,9 +332,8 @@ Esta sesion ayudo mucho para expandir el conocimiento en las sintaxis y la estru
 
 
 
-## Semana 4
 
-### Sesión 1 miercoles febrero 14
+### Sesión 2 miercoles febrero 14
 
 #### Micro-sesión 1: apertura.
 
