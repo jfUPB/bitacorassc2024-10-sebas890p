@@ -366,21 +366,42 @@ https://www.youtube.com/watch?v=inFJ5EyOhpM
 de esta sesion llego a concluir que debo buscar mas y aprender mas sobre las direcciones de entradas a la pantalla y las posiciones de los pixeles. 
 
 
-### Sesion 3 jueves 15 de febrero 
+### Sesion 3 viernes 16 de febrero 
 
 #### Micro-sesión 1: apertura.
 
+Inicio esta sesion autonoma el viernes 16 de febrero por temas medicos ya que estuve acompañando a mi mama que no vive en la ciudad a hacerse unos procedimientos medicos, esta sesion la quiero dedicar a seguir lo que estuve haciendo en clases, realizar la investigacion y pruebas de algunos pasos del codigo del reto final. 
 
 
 #### Micro-sesión 2
 
+En esta primera micro sesion estuve averiguando cuales eran las direcciones de cada letra en especifico, primero me frustre un poco, ya que investigando en internet no encontraba nada de la informacion que necesitaba, por lo que use el codigo que realizo el profesor en clase que es el siguiente 
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/777f0f94-46f3-4d6a-8365-7abc39a597b5)
+
+y me di cuenta que cada vez que undia una tecla se marcaba la direccion de la tecla en la ram, por lo que la direccion de la P es la 80 y de la A la 65, que son las 2 letras que necesito ya que mi apellido es pedroza.
 
 
 #### Micro-sesión 3
 
+En esta micro sesion estuve comprobando que si estuviera en lo correcto con las direcciones de los pixles asi que con ayuda de inteligencias artificiales, modifique el codigo anterior, haciendo que cuando se presione la P haga un salto al else y esto haga que no se pinte la pantalla, por lo que los resultados fueron satisfactorios,
+
+https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/12683327-f8b2-4417-ae25-31f644260356
+
+
+Como se puede apreciar en el video cuando no se presiona nada si se pinta el pixel, y cuando presiono la P si se pinta. 
+
 
 #### Micro-sesión 4
+
+En esta micro sesion estuve tratando de ahora pintar algunos pixeles mas usando un LOOP sin emabargo no pude conseguir un buen resultado ya que no he terminado de encontrar cuales son los numeros o las direcciones de los pixeles de la pantalla. 
+
+trate haciendo pruebas con multiplicando el numero de los primeros 16 pixeles de entradas pero no me funciono.
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/97e7efcc-9bcc-4860-8349-049f25f30cfa)
 
 
 
 #### Micro-sesión 5 cierre
+
+
+De esta session me quedo que debo en clase averiguar mejor como funcionan las posiciones de los pixeles y terminar de aprender mas sobre los LOOPS pero siento que he podido avanzar en este reto. 
