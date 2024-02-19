@@ -418,5 +418,13 @@ En esta sesion me voy a dedicar a aprender sobre las posicion de los pixeles par
 
 #### Micro-sesión 2
 
+En esta micro sesion, estuve investigando como funcionan las ubicaciones de los pixeles pero no encotre informacion clara, pero pude conseguir una plantilla de excel en la cual puedo pintar primero y luego pasarlo a codigo de la siguiente forma: 
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/73818d89-70b1-4317-a53e-ff54cbfc92cc)
+
+como se ve en la imagen tengo un cuadro subrayado en amarillo, en el que cada casilla de las filas subrayadas tienen el numero correspondiente al pixel en CPU emulator.
+
+#### Micro-sesión 3
+
 
 
