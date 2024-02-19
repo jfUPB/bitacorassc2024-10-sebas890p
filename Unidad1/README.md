@@ -405,3 +405,18 @@ trate haciendo pruebas con multiplicando el numero de los primeros 16 pixeles de
 
 
 De esta session me quedo que debo en clase averiguar mejor como funcionan las posiciones de los pixeles y terminar de aprender mas sobre los LOOPS pero siento que he podido avanzar en este reto. 
+
+
+## Semana 5
+
+### Sesión 1 lunes febrero 19 
+
+#### Micro-sesión 1: apertura.
+
+En esta sesion me voy a dedicar a aprender sobre las posicion de los pixeles para poder adaptarlo a lo que necesito en el codigo final .
+
+
+#### Micro-sesión 2
+
+
+
