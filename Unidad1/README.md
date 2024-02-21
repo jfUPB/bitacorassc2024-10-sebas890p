@@ -425,6 +425,14 @@ En esta micro sesion, estuve investigando como funcionan las ubicaciones de los 
 como se ve en la imagen tengo un cuadro subrayado en amarillo, en el que cada casilla de las filas subrayadas tienen el numero correspondiente al pixel en CPU emulator.
 
 #### Micro-sesión 3
+Esta micro sesion tuve que realizar en mi casa ya que tuve que salir de clase para acompañar a mi mama a un procedimiento medico, en esta micro sesion me dedique a hacer las pruebas de si era correcto las posiciones de los pixeles que mostre en la imagen anterior, por lo que pase los pixeles al codigo y el resultadi fue el siguiente:
 
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/00c5f37d-216b-4bd0-9452-dc3d1c3d7270)
+
+como se puede ver si se pinto el cuadro que subraye en amarillo en el excel. 
+
+#### Micro-sesión 4 cierre:
+
+De esta sesion me quedan buenas sensaciones con respecto al reto final, ya que en lo que me sentia mas quedado era en las posciones de los pixeles pero pude conseguirlas, por lo que ya me queda ver que me iamgen quiero que se pinte en CPU emulator.
 
 
