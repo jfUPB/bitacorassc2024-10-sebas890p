@@ -1,20 +1,20 @@
 ```
-(START)    
+(?)    
 @16384 
 D=A    
-@65
+@16
 M=D    
 @80
 D=A
 @24576 
 D=D-M  
-@buclePint
+@bucleP
 D;JEQ
 @65
 D=A
 @24576
 D=D-M
-@bucleDespint
+@bucleDP
 D;JEQ
 
 @?
@@ -22,7 +22,7 @@ D;JEQ
 
 
 
-(bucleDespint)
+(bucleDP)
 
 @16
 D=M
@@ -34,11 +34,11 @@ D;JEQ
 AM=M+1
 M=0
 
-@bucleDespint
+@bucleDP
 0;JMP
 
 
-(buclePint)
+(bucleP)
 
 @19540
 M=-1
