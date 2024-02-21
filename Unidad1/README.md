@@ -435,4 +435,13 @@ como se puede ver si se pinto el cuadro que subraye en amarillo en el excel.
 
 De esta sesion me quedan buenas sensaciones con respecto al reto final, ya que en lo que me sentia mas quedado era en las posciones de los pixeles pero pude conseguirlas, por lo que ya me queda ver que me iamgen quiero que se pinte en CPU emulator.
 
+## Sesión 2 miercoles febrero 21 
 
+#### Micro-sesión 1: apertura.
+
+En esta sesion me dedicare a terminar lo que me falta del codigo final, que en este caso seria hacer que borre la imagen.
+
+#### Micro-sesión 2:
+
+en esta micro sesion estuve investigando porque el codigo no borrara la imagen y con ayuda de chat gpt, me di cuenta que era porque estaba utilizando la etiqueta estar y esta no permitia que al presionar la A saltara al bucle de borrar, ya que cada salto se hacia a la etiqueta START por lo que utilice ? que funciona como un marcador para una direccion no determinada, por lo tanto esta si permite saltar al bucle borrar cuando se presione la letra requerida, el codigo lo actualice en RetoFinal.asm
+ un marcador 
