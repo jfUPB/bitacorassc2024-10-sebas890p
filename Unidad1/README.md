@@ -445,3 +445,15 @@ En esta sesion me dedicare a terminar lo que me falta del codigo final, que en e
 
 en esta micro sesion estuve investigando porque el codigo no borrara la imagen y con ayuda de chat gpt, me di cuenta que era porque estaba utilizando la etiqueta estar y esta no permitia que al presionar la A saltara al bucle de borrar, ya que cada salto se hacia a la etiqueta START por lo que utilice ? que funciona como un marcador para una direccion no determinada, por lo tanto esta si permite saltar al bucle borrar cuando se presione la letra requerida, el codigo lo actualice en RetoFinal.asm
  un marcador 
+
+#### Micro-sesión 3:
+
+En esta micro sesion, me dedique a elegir la imagen a pintar, ya que tenia el codigo funcionando de forma correcta ya solo era elegir que imagen pintar, entonces elegi la siguiente:
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/470784b4-1f63-4043-8b86-4dea7d5cd502)
+
+Esta trate de recrear un carro que esta tirando humo por el escape.
+
+#### Micro-sesión 4 cierre:
+
+En esta sesion pude cumplir con el proposito de hacer que la imagen se borre correctamente, ademas ya alegi que imagen usare para pintar en CPU  emulator. 
