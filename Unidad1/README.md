@@ -457,3 +457,18 @@ Esta trate de recrear un carro que esta tirando humo por el escape.
 #### Micro-sesión 4 cierre:
 
 En esta sesion pude cumplir con el proposito de hacer que la imagen se borre correctamente, ademas ya alegi que imagen usare para pintar en CPU  emulator. 
+
+### Sesión 3 viernes febrero 23 
+
+#### Micro-sesión 1: apertura.
+
+
+#### Micro-sesión 2:
+
+
+En esta micro sesion me dedique a terminar el codigo con la imagen que eligi en la sesion 2 en clase, sin embargo mientras lo hacia cuando hice las pruebas la imagen no se pintaba de forma adecuada y tampoco se borraba de buena forma, por lo que decide escoger otra imagen que es la siguiente:
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/8a248cc0-64b1-4ce2-a01c-13bb3fd318dd)
+
+ya con esta imagen el codigo me funciono perfectamente al borrar y al pintar, el codigo esta actualizado en el archivo del reto final. 
+
