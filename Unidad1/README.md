@@ -472,3 +472,10 @@ En esta micro sesion me dedique a terminar el codigo con la imagen que eligi en 
 
 ya con esta imagen el codigo me funciono perfectamente al borrar y al pintar, el codigo esta actualizado en el archivo del reto final. 
 
+#### Micro-sesión 3:
+
+
+#### Micro-sesión 4:
+
+
+#### Micro-sesión 5: cierre
