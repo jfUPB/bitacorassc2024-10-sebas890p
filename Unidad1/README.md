@@ -474,8 +474,22 @@ ya con esta imagen el codigo me funciono perfectamente al borrar y al pintar, el
 
 #### Micro-sesión 3:
 
+En esta micro sesion estuve recordando y aprendiendo un poco sobre los diagramas de flujo, para la entrega del reto final, estuve viendo la seguiente pagina:
+
+https://asana.com/es/resources/what-is-a-flowchart
+
 
 #### Micro-sesión 4:
 
 
+En esta micro sesion me dedique a hacer el diagrama de flujo, este lo hice en la siguiente pagina:
+https://app.creately.com/d/p9lsGEX030c/edit
+
+y el resultado es el siguiente:
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/bbc085cf-4a22-426e-81c5-f5b608e7327d)
+
+
 #### Micro-sesión 5: cierre
+
+termino esta sesion contento ya que a la vez es el termino de la 1ra unidad que pude acabar satisfatoriamente, pude aprender varios conceptos nuevos y a la vez a manejar github de una mejor forma, pude completar el reto final y todas las bitacoras manteniendo un orden el proceso. 
