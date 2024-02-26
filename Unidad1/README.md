@@ -482,12 +482,19 @@ https://asana.com/es/resources/what-is-a-flowchart
 #### Micro-sesión 4:
 
 
-En esta micro sesion me dedique a hacer el diagrama de flujo, este lo hice en la siguiente pagina:
+En esta micro sesion me dedique a hacer el siguiente requisito 
+Vas a mostrar la solución a tu problema con un diagrama de flujo. Muestra que parte de tu código ensamblador implementa las estructuras de control condicionales y los ciclos.
+
+el diagrama de flujo lo hice en la siguiente pagina:
 https://app.creately.com/d/p9lsGEX030c/edit
 
 y el resultado es el siguiente:
 
 ![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/bbc085cf-4a22-426e-81c5-f5b608e7327d)
+
+las estructuras control de condicionales las maneje con bucleP (bucle pintar) y bucleDP (bucle despintar) los cuales cumplen una condicion de leer la direccion del teclado para saber que letra se esta presionando y asi iniciar el bucle que corresponda.
+
+los ciclos estan implementados en los JMP(saltos) asi se pueden crear ciclos infinitos mientras se cumplan las condiciones.  
 
 
 #### Micro-sesión 5: cierre
