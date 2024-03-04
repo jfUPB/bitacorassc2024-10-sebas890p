@@ -21,3 +21,51 @@ la explicacion del profesor sobre la unidad duro toda la micro sesion anterior q
 #### Micro-sesión 4: cierre. 
 
 Como conclusion de esta unidad debo investigar bastante ya que hay muchos conceptos que se deben aprender, ademas que el lenguaje de C es nuevo para mi, lo conocia pero nunca le he dado un repaso, por lo que debo estar atento y investigar bastante.  
+
+
+### Sesión 2 miercoles febrero 28
+
+#### Micro-sesión 1: apertura.
+
+
+#### Micro-sesión 2:
+
+
+#### Micro-sesión 3:
+
+
+#### Micro-sesión 4: cierre. 
+
+
+
+
+
+## Semana 6
+
+### Sesión 1 lunes febrero 26
+
+#### Micro-sesión 1: apertura.
+
+
+#### Micro-sesión 2:
+
+
+#### Micro-sesión 3:
+
+
+#### Micro-sesión 4: cierre. 
+
+
+
+### Sesión 2 miercoles marzo 6
+
+#### Micro-sesión 1: apertura.
+
+
+#### Micro-sesión 2:
+
+
+#### Micro-sesión 3:
+
+
+#### Micro-sesión 4: cierre. 
