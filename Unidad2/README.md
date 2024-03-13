@@ -282,7 +282,7 @@ Se ejemplifica cómo incluso en juegos por turnos, donde el estado del juego no 
 
 #### Micro-sesión 4: cierre. 
 
-Tomar esta sesion para hcer un resumen de conceptos complicados o dificiles de entender me puede ayudar en futuro para implementarlos y entenderlos mas facil. 
+Tomar esta sesion para hacer un resumen de conceptos complicados o dificiles de entender me puede ayudar en futuro para implementarlos y entenderlos mas facil. 
 
 
 
@@ -291,11 +291,135 @@ Tomar esta sesion para hcer un resumen de conceptos complicados o dificiles de e
 
 #### Micro-sesión 1: apertura.
 
+En esta sesion  me dedicare a analizar el codigo que contiene el gameloop que esta propuesto por el profesor, esto mismo lo hicieron ya en clase pero no pude asistir a la clase en que analizaron este codigo
+el codigo es el siguiente:
+
+```C
+#include <stdio.h>
+#include <SDL.h>
+
+#define TRUE 1
+#define FALSE 0
+#define WINDOW_WIDTH 800
+#define WINDOW_HEIGHT 600
+
+SDL_Window* window = NULL;
+SDL_Renderer *renderer = NULL;
+int gameRunning = FALSE;
+
+void showRenderDriversInfo(void) {
+  int numRenderDrivers = SDL_GetNumRenderDrivers();
+  printf("Número de drivers de renderizado disponibles: %d\n", numRenderDrivers);
+
+  for (int i = 0; i < numRenderDrivers; i++) {
+    SDL_RendererInfo info;
+    if (SDL_GetRenderDriverInfo(i, &info) == 0) {
+      printf("Driver %d: %s\n", i, info.name);
+    }
+  }
+}
+
+void showSelectedRederer(void) {
+  // Asumiendo que tienes un SDL_Renderer* llamado renderer que ya fue creado
+
+  SDL_RendererInfo rendererInfo;
+  if (SDL_GetRendererInfo(renderer, &rendererInfo) == 0) {
+    printf("Driver de renderizado seleccionado: %s\n", rendererInfo.name);
+  }
+  else {
+    printf("Error al obtener la información del renderizador: %s\n", SDL_GetError());
+  }
+
+}
+
+
+int init_window(void){
+
+  if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+    printf("Error SDL_Init\n");
+    return FALSE;
+  }
+  showRenderDriversInfo();
+
+  window = SDL_CreateWindow(
+    "My first Window",
+    SDL_WINDOWPOS_CENTERED,
+    SDL_WINDOWPOS_CENTERED,
+    WINDOW_WIDTH,
+    WINDOW_HEIGHT,
+    SDL_WINDOW_SHOWN);
+  if (window == NULL) {
+    printf("Error SDL_CreateWindow\n");
+    return FALSE;
+  }
+
+  renderer = SDL_CreateRenderer(window, -1, 0);
+  if (renderer == NULL) {
+    printf("Error SDL_CreateRenderer\n");
+    return FALSE;
+  }
+
+  showSelectedRederer();
+
+  return TRUE;
+}
+
+void process_input(void) {
+  SDL_Event event;
+  SDL_PollEvent(&event);
+
+  switch (event.type) {
+  case SDL_QUIT:
+    gameRunning = FALSE;
+    break;
+  case SDL_KEYDOWN:
+    if (event.key.keysym.sym == SDLK_ESCAPE) {
+      gameRunning = FALSE;
+    }
+    break;
+  }
+}
+
+void update(void) {
+
+
+}
+
+
+void render(void) {
+
+}
+
+void setup(void) {
+  gameRunning = init_window();
+}
+
+void clean() {
+  SDL_DestroyRenderer(renderer);
+  SDL_DestroyWindow(window);
+  SDL_Quit();
+}
+
+int main(int argc, char* argv[]) {
+  setup();
+  while (gameRunning) {
+    // El concepto de gameloop para correr una aplicación
+    // interactiva
+    process_input(); // Leo las entradas
+    update();        // calculo las físicas
+    render();        // actualizo las salidas
+  }
+  clean();
+  return 0;
+}
+```
+
+
 
 
 #### Micro-sesión 2:
 
-
+En esta microsesion definire los conceptos de las variables locales y globales 
 
 
 #### Micro-sesión 3:
