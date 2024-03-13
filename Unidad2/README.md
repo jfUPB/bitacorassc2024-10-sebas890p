@@ -89,6 +89,8 @@ luego de unos errores por olvidar el paso de añadir SDL2.dll a la carpeta del p
 
 
 En esta micro sesion estuve mirando la actividad 5 de pintar una ventana, para entender un poco mejor me ayude de chatgpt para que me explicara el codigo
+
+
 ![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/1b74a0ed-5a4a-4e90-b210-9d1a65611ead)
 
 
