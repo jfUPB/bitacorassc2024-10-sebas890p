@@ -65,10 +65,140 @@ Luego de declararlas y definir las bibliotecas hice la prueba con un codigo que 
 Como conclusion me doy cuenta que este lenguaje de C es mas complicado por el tema de tener que declarar las bibliotecas, por lo tanto debo tener muy en cuenta esto.
 
 
+### Sesión 3 jueves febrero 29
+
+
+#### Micro-sesión 1: apertura.
+
+En esta sesion autonoma planeo realizar los pasos que segui en el salon pero ahora desde mi computador y a la vez comenzar con la parte de pintar la ventana. 
+
+#### Micro-sesión 2:
+
+Empece instalando la extension de C 
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/94f3fa94-6203-41cd-a9a0-8cf7b290409c)
+
+mientras se instala la extencio segui instalando la biblioteca de SDL2, luego que ya instale todo prosegui creando el archivo main.c.
+
+luego de unos errores por olvidar el paso de añadir SDL2.dll a la carpeta del proyecto ya pude dejar todo funcionando correctamente, esto lo verifique al poder copilar la ventana
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/258313f7-827d-450b-9746-8af7924f191b)
+
+
+
+#### Micro-sesión 3:
+
+
+En esta micro sesion estuve mirando la actividad 5 de pintar una ventana, para entender un poco mejor me ayude de chatgpt para que me explicara el codigo
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/1b74a0ed-5a4a-4e90-b210-9d1a65611ead)
+
+
+
+#### Micro-sesión 4:
+
+Luego de leer lo que me explico chatgpt prosegui a reponder la pregunta planteada por el profesor que es la siguiente: 
+Te pregunto antes de seguir. ¿Por qué se necesita que sea una varibale global? Hay otra manera de preguntarle a showSelectedRederer de cuál redenderer queremos tener información?
+
+Yo pensaria que no es necesario ya que al ser global la variable debe procesar mas datos de los devidos, cuando se le puede especificar el render que debe seleccionar. 
+
+le puse esta misma pregunta a chatgpt y contesto que, Una manera de mejorar el diseño sería pasar el renderer como un parámetro a la función showSelectedRenderer. Esto permite una mejor modularidad y evita depender de variables globales, lo que puede causar problemas en programas más grandes y complejos.
+
+y me puso un codigo actualizado para que acepte el renderer como un parámetro, el codigo es el siguiente:
+
+
+```c
+#include <stdio.h>
+#include <SDL.h>
+#include <SDL_render.h>
+
+#define TRUE 1
+#define FALSE 0
+#define WINDOW_WIDTH 800
+#define WINDOW_HEIGHT 600
+
+void showRenderDriversInfo(void);
+void showSelectedRenderer(SDL_Renderer* renderer);
+int init_window(SDL_Renderer** renderer);
+
+int main() {
+    SDL_Window* window = NULL;
+    SDL_Renderer* renderer = NULL;
+
+    if (init_window(&renderer) == FALSE) {
+        printf("Error al inicializar la ventana.\n");
+        return 1;
+    }
+
+    // Aquí iría el código de renderizado y manejo de eventos
+
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+    return 0;
+}
+
+void showRenderDriversInfo(void) {
+    int numRenderDrivers = SDL_GetNumRenderDrivers();
+    printf("Número de drivers de renderizado disponibles: %d\n", numRenderDrivers);
+
+    for (int i = 0; i < numRenderDrivers; i++) {
+        SDL_RendererInfo info;
+        if (SDL_GetRenderDriverInfo(i, &info) == 0) {
+            printf("Driver %d: %s\n", i, info.name);
+        }
+    }
+}
+
+void showSelectedRenderer(SDL_Renderer* renderer) {
+    SDL_RendererInfo rendererInfo;
+    if (SDL_GetRendererInfo(renderer, &rendererInfo) == 0) {
+        printf("Driver de renderizado seleccionado: %s\n", rendererInfo.name);
+    }
+    else {
+        printf("Error al obtener la información del renderizador: %s\n", SDL_GetError());
+    }
+}
+
+int init_window(SDL_Renderer** renderer) {
+    if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+        printf("Error SDL_Init\n");
+        return FALSE;
+    }
+
+    showRenderDriversInfo();
+
+    SDL_Window* window = SDL_CreateWindow(
+        "My first Window",
+        SDL_WINDOWPOS_CENTERED,
+        SDL_WINDOWPOS_CENTERED,
+        WINDOW_WIDTH,
+        WINDOW_HEIGHT,
+        SDL_WINDOW_SHOWN);
+    if (window == NULL) {
+        printf("Error SDL_CreateWindow\n");
+        return FALSE;
+    }
+
+    *renderer = SDL_CreateRenderer(window, -1, 0);
+    if (*renderer == NULL) {
+        printf("Error SDL_CreateRenderer\n");
+        return FALSE;
+    }
+
+    showSelectedRenderer(*renderer);
+
+    return TRUE;
+}
+```
+
+
+#### Micro-sesión 5: cierre. 
+
+Despues de terminar esta sesion autonoma aprendi cuales son las funciones que puedo usar para pintar un ventada y como puedo hacerlo de una forma mas eficiente. 
+
 
 ## Semana 7
 
-### Sesión 1 lunes febrero 26
+### Sesión 1 lunes marzo 4
 
 
 #### Micro-sesión 1: apertura.
@@ -106,7 +236,7 @@ Como conclusion me doy cuenta que este lenguaje de C es mas complicado por el te
 ## Semana 8
 
 
-### Sesión 1 lunes febrero 26
+### Sesión 1 lunes marzo 11
 
 #### Micro-sesión 1: apertura.
 
@@ -121,7 +251,7 @@ Como conclusion me doy cuenta que este lenguaje de C es mas complicado por el te
 
 
 
-### Sesión 2 miercoles marzo 6
+### Sesión 2 miercoles marzo 13
 
 #### Micro-sesión 1: apertura.
 
