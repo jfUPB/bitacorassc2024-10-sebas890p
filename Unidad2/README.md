@@ -453,13 +453,72 @@ La informacion fue sacada de https://www.ibm.com/docs/es/product-master/12.0.0?t
 
 #### Micro-sesión 3:
 
+Uno de los temas importantes sobre el gameloop es:
 
+Fases del Bucle de Juego:
 
+Entrada (Input): Procesa la entrada del usuario, como teclas presionadas o clics del ratón.
+Actualización (Update): Actualiza la lógica del juego, incluyendo movimiento, físicas y eventos del juego.
+Renderizado (Render): Muestra la salida gráfica en la pantalla.
+Consideraciones de Tiempo:
+
+La sincronización del tiempo en el bucle de juego es crucial para garantizar un comportamiento consistente en diferentes sistemas. Se pueden utilizar técnicas como "delta time" para manejar variaciones en el rendimiento.
+Evitar el Bloqueo (Avoid Blocking):
+
+Es esencial evitar bloquear el bucle de juego, ya que esto podría conducir a una experiencia de juego lenta o irresponsiva. Se pueden implementar soluciones como el uso de subprocesos (threads) para evitar bloqueos.
+Control de Velocidad (Frame Rate Independence):
+
+La implementación del bucle de juego debe ser independiente de la velocidad de fotogramas (frame rate) para garantizar que el juego se comporte de manera consistente, independientemente del rendimiento del hardware.
+Optimización y Mantenimiento:
+
+Se mencionan estrategias para optimizar el bucle de juego y consideraciones para el mantenimiento a largo plazo, como separar la lógica del juego del código específico de la plataforma.
 
 
 
 
 #### Micro-sesión 4: cierre
+
+Esta sesion fue realizada en clase guiada por el profesor como comente en la apertura de la misma, no pude asistir a esta clase sin embargo con la ayuda de compañeros me comentaron lo que se hizo y trabaje esta sesion sobre eso para asi ponerme al dia, realice correctamente lo propuesto para esta sesion y me ayudo a tener mas claro conceptos del gameloop. 
+
+
+
+
+### Sesión 3 jueves marzo 7
+
+
+#### Micro-sesión 1: apertura.
+
+
+
+
+
+
+#### Micro-sesión 2:
+
+
+
+
+
+
+
+#### Micro-sesión 3:
+
+
+
+
+
+
+
+#### Micro-sesión 4:
+
+
+
+
+
+
+#### Micro-sesión 5: cierre
+
+
 
 
 ## Semana 8
