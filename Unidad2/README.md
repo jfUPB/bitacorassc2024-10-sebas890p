@@ -205,14 +205,85 @@ Despues de terminar esta sesion autonoma aprendi cuales son las funciones que pu
 
 #### Micro-sesión 1: apertura.
 
+En esta sesion tengo planeado trabajar en la actividad 6 llamada el concepto de gameloop. 
+
 
 #### Micro-sesión 2:
+
+Para empezar la sesion me parecio adecuado leer el siguiente link proporcionado por el profesor:
+
+https://gameprogrammingpatterns.com/game-loop.html
+
+para que la lectrura y los conceptos se me queden mas facil con la ayuda de chatgpt realice un resumen de todos los conceptos dados en el link 
+
+
+Motivación:
+
+El artículo comienza resaltando la importancia del bucle de juego como un patrón fundamental en la programación de videojuegos. Se destaca que la mayoría de los juegos cuentan con un bucle de juego único y que este patrón es poco común fuera del ámbito de los juegos.
+
+Para ilustrar la utilidad de los bucles de juego, el artículo hace una breve comparación con los programas en modo por lotes de la era temprana de la programación informática, donde el código se ejecutaba una vez y luego se detenía. Se menciona que, aunque este enfoque todavía se usa en algunos casos, como scripts de shell o programas de línea de comandos, la mayoría de los programas modernos, incluidos los juegos, utilizan bucles de juego para mantener la interactividad continua y la actualización constante del estado del juego.
+
+
+Bucles de eventos:
+
+
+El artículo explora la estructura de los bucles de eventos en las aplicaciones de interfaz gráfica de usuario (GUI), comparándolos con los bucles de juego en los videojuegos. Describe cómo las aplicaciones de GUI esperan eventos de entrada del usuario, como clics del mouse o pulsaciones de teclas, para llevar a cabo acciones en respuesta a ellos.
+
+Se destaca que, a diferencia de la mayoría de los programas que esperan pasivamente la entrada del usuario, los juegos continúan su ejecución incluso cuando no se proporciona información. Se menciona que los juegos siguen animando y procesando eventos incluso si el usuario no interactúa activamente con ellos.
+
+Se introduce la noción de eventos "inactivos" en los bucles de eventos, que permiten que el programa realice acciones de forma intermitente sin la intervención del usuario. Sin embargo, se señala que esto es insuficiente para los juegos, que requieren un enfoque más dinámico y continuo.
+
+Finalmente, se presenta la estructura básica de un bucle de juego, que consta de tres partes principales: procesar la entrada del usuario, actualizar el estado del juego y renderizar la salida visual. Estas partes se ejecutan en un ciclo continuo para mantener la interactividad y la actualización constante del juego, independientemente de la entrada del usuario.
+
+
+
+
+Un mundo fuera del tiempo:
+
+
+El artículo explora la noción de tiempo en el contexto del bucle de juego, destacando cómo el avance del tiempo en el juego está separado del tiempo real del jugador. Se introduce la idea de que cada iteración del bucle de juego avanza el estado del juego, y se utilizan términos comunes como "tick" y "frame" para describir estas unidades de tiempo.
+
+Se discute cómo la velocidad a la que se repite el ciclo del juego determina los cuadros por segundo (FPS) del juego, lo que afecta la fluidez y la rapidez del juego. Se menciona que un ciclo de juego rápido produce un alto FPS y un juego fluido, mientras que un ciclo de juego lento puede resultar en una experiencia similar a una película stop motion.
+
+Se señala que la velocidad de fotogramas está determinada por dos factores principales: la cantidad de trabajo que se realiza en cada cuadro y la velocidad de la plataforma subyacente. Los procesos complejos, como la física del juego y los gráficos detallados, pueden ralentizar la velocidad de fotogramas, al igual que la potencia de procesamiento del hardware subyacente y otros componentes del sistema.
+
+
+
+Segundos por segundo:
+
+
+El artículo aborda el desafío de mantener la velocidad del juego constante a pesar de las diferencias en el hardware subyacente. En los primeros videojuegos, este problema se mitigaba debido a que los juegos se desarrollaban específicamente para una plataforma de hardware particular, como la NES o la Apple IIe. Los desarrolladores podían ajustar el código del juego para ejecutarse de manera óptima en ese hardware específico.
+
+Sin embargo, en la actualidad, los desarrolladores enfrentan el desafío de crear juegos que se ejecuten de manera consistente en una variedad de dispositivos con diferentes capacidades de hardware. Esta adaptación inteligente se convierte en una función clave del bucle de juego, que permite que el juego se ejecute a una velocidad constante independientemente de las diferencias en el hardware subyacente.
+
+
+
+
 
 
 #### Micro-sesión 3:
 
+El patrón:
+Un bucle de juego se ejecuta continuamente durante el juego. En cada vuelta del bucle, procesa la entrada del usuario sin bloquear, actualiza el estado del juego y lo representa . Sigue el paso del tiempo para controlar el ritmo del juego .
+
+Como usar el patron:
+
+Esta sección del artículo advierte sobre el uso excesivo de patrones de diseño y enfatiza que el objetivo no es simplemente incorporar la mayor cantidad posible de patrones en el código base. Se destaca que el uso incorrecto de un patrón puede ser peor que no usar ninguno.
+
+Sin embargo, se menciona que el patrón de bucle de juego es una excepción a esta regla. Se señala que este patrón es fundamental en el desarrollo de videojuegos y que es muy probable que se utilice en la mayoría de los proyectos de desarrollo de juegos. Incluso si estás utilizando un motor de juego preexistente, este patrón estará presente en el núcleo del sistema.
+
+Se ejemplifica cómo incluso en juegos por turnos, donde el estado del juego no avanza hasta que el jugador toma su turno, los aspectos visuales y auditivos del juego continúan funcionando. Esto subraya la importancia del bucle de juego para mantener la interactividad y la inmersión del jugador, incluso en juegos con mecánicas de juego menos intensivas en tiempo real.
+
+
+
+
+
+
 
 #### Micro-sesión 4: cierre. 
+
+Tomar esta sesion para hcer un resumen de conceptos complicados o dificiles de entender me puede ayudar en futuro para implementarlos y entenderlos mas facil. 
+
 
 
 
