@@ -448,7 +448,7 @@ En el ejemplo siguiente, var c=10; en el script principal es una variable global
 ![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/20bc0c1c-fdcf-430d-9326-a36bf2d3966c)
 
 
-
+La informacion fue sacada de https://www.ibm.com/docs/es/product-master/12.0.0?topic=constructs-global-variables
 
 
 #### Micro-sesión 3:
