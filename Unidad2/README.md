@@ -419,10 +419,42 @@ int main(int argc, char* argv[]) {
 
 #### Micro-sesión 2:
 
-En esta microsesion definire los conceptos de las variables locales y globales 
+En esta microsesion definire los conceptos de las variables locales y globales
+
+las variables locales:
+
+Estas variables se deben declarar dentro de un bloque de codigo en particular como una funcion o un bloque condicional.
+es aquella cuyo ámbito se restringe a la función que la ha declarado se dice entonces que la variable es local a esa función. Esto implica que esa variable sólo va a poder ser manipulada en dicha sección, y no se podrá hacer referencia fuera de dicha sección. Cualquier variable que se defina dentro de las llaves del cuerpo de una función se interpreta como una variable local a esa función.
+
+Una variable local es una variable que se define dentro de una función y con la palabra var. Si no existe ningún var , se utiliza la variable global con el mismo nombre.
+En el ejemplo siguiente, var c = 5; en la función local_var() es la variable local.
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/a6125587-bb08-41dc-9e6c-0da220ea47c1)
+
+la informacion anterior es sacada de 
+https://www.ibm.com/docs/es/product-master/12.0.0?topic=constructs-local-variables
+
+
+
+Las variables globales: 
+
+es aquella que se define fuera del cuerpo de cualquier función, normalmente al principio del programa, después de la definición de los archivos de biblioteca (#include), de la definición de constantes simbólicas y antes de cualquier función. El ámbito de una variable global son todas las funciones que componen el programa, cualquier función puede acceder a dichas variables para leer y escribir en ellas. Es decir, se puede hacer referencia a su dirección de memoria en cualquier parde del programa.
+
+Una variable global es una variable definida en el script principal.
+
+En el ejemplo siguiente, var c=10; en el script principal es una variable global.
+
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/20bc0c1c-fdcf-430d-9326-a36bf2d3966c)
+
+
+
 
 
 #### Micro-sesión 3:
+
+
+
 
 
 
