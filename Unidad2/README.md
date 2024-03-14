@@ -488,35 +488,120 @@ Esta sesion fue realizada en clase guiada por el profesor como comente en la ape
 
 #### Micro-sesión 1: apertura.
 
-
+Para esta seion tengo planeado empezar a hacer experimento con la ventana hecha en el gameloop que fue en la sesion anterior. 
 
 
 
 
 #### Micro-sesión 2:
 
+Empece esta micro sesion revisando la actividad 7 de la guia de SDL2 que se trata de pintar un rectangulo en la ventana, para esto el profesor nos proporciono el siguiente fragmento de codigo:
+
+```C
+void render(void) {
+  SDL_Rect rect;
+  rect.x = 250; // Posición x del rectángulo
+  rect.y = 150; // Posición y del rectángulo
+  rect.w = 200; // Ancho del rectángulo
+  rect.h = 100; // Alto del rectángulo
+
+  // Limpia el "lienzo" en este frame (?)
+  SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Color de fondo: negro
+  SDL_RenderClear(renderer);
+
+  // Dibuja el rectángulo, pero aún no lo muestra
+  SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Color del rectángulo: rojo
+  SDL_RenderFillRect(renderer, &rect);
+
+  // Actualiza el lienzo
+  SDL_RenderPresent(renderer);
+}
+```
+El cual funciona actualiandolo en el void render del codigo anterior del gameloop, con este codigo obtenemos lo siguiente:
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/d9885889-956e-43a8-a32f-4a444a31829d)
+
+A partir de esto pienso hacer un rectangulo mas pequeño y posicionarlo como si fuera una raqueta del pin pon
 
 
+Luego de estar experimentando con el ancho alto y las posiciones ubique el rectangulo de la siguiente manera:
 
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/58b691e0-f564-4d40-a1bd-b3f27820a81b)
 
+De esta manera ya se parece a una raqueta del juego de pin pon.
 
 
 #### Micro-sesión 3:
 
+En esta micro sesion estuve experimenta para crear otra raqueta pero esta vez en la parte de abajo para que fuera la raqueta rival, al comienzo estaba teniendo errores porque solo duplique el codigo y le cambie la variable a rect2, el error que tenia era que las dos raquetas parpadeaban todo el tiempo, pero lo solucione quitando la siguiente linea de codigo 
+
+```
+  SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Color de fondo: negro
+  SDL_RenderClear(renderer);
+```
+
+el otro cambio que hice es que a la raqueta de abajo le cambie el color para que se identificara una de cada equipo y el codigo del void render me quedo asi:
+
+```c
+void render(void) {
+    SDL_Rect rect;
+    rect.x = 150; // Posición x del rectángulo
+    rect.y = 0; // Posición y del rectángulo
+    rect.w = 100; // Ancho del rectángulo
+    rect.h = 20; // Alto del rectángulo
+
+    
+    // Dibuja el rectángulo, pero aún no lo muestra
+    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Color del rectángulo: rojo
+    SDL_RenderFillRect(renderer, &rect);
+
+    // Actualiza el lienzo
+    SDL_RenderPresent(renderer);
 
 
 
+    SDL_Rect rect2;
+    rect2.x = 500; // Posición x del rectángulo
+    rect2.y = 580; // Posición y del rectángulo
+    rect2.w = 100; // Ancho del rectángulo
+    rect2.h = 20; // Alto del rectángulo
+
+   
+
+    // Dibuja el rectángulo, pero aún no lo muestra
+    SDL_SetRenderDrawColor(renderer, 200, 200, 400, 800); // Color del rectángulo: rojo
+    SDL_RenderFillRect(renderer, &rect2);
+
+    // Actualiza el lienzo
+    SDL_RenderPresent(renderer);
+
+
+}
+```
+
+y el resultado fue el siguiente:
+
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/e502d5c1-cfaa-4724-99b7-1d4668ac232c)
 
 
 
 #### Micro-sesión 4:
 
+En esta microseion me dedique a la actividad 8 que se trata de ahora pintar el circulo que va a ser la pelota en el juego, al seguir los pasos el resultado es el siguiente:
 
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/efc36612-85a4-474f-85b4-77a49d4cae88)
+
+Ahora voy a experimentar para hacer la pelota mas pequeña, para cambior el tamaño de la pelota se debe cambiar el radio, cambie el radio a 10 y el resultado es este:
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/b74c1dc2-bcb9-4ae3-b44a-0b86402fc399)
 
 
 
 
 #### Micro-sesión 5: cierre
+
+En esta sesion pude realizar todo lo que propuse en cada microseion, fue una sesion muy buena para avanzar en los conocimientos de como realizar el pin pon, pude adelantar bastante en la parte grafica.
 
 
 
