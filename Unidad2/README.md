@@ -614,6 +614,8 @@ En esta sesion pude realizar todo lo que propuse en cada microseion, fue una ses
 #### Micro-sesión 1: apertura.
 
 
+
+
 #### Micro-sesión 2:
 
 
