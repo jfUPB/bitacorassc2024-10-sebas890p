@@ -787,3 +787,32 @@ En este caso, el patrón de "Double Buffering" se está aplicando de manera impl
 #### Micro-sesión 4: cierre. 
 
 Como conclusion de esta sesion, el doble bufer funciona para mantener una fluidez adecuada en el programa y que no tenga errores como por ejemplo de vibraciones o parpadeos en la interfaz por fallas en la actualizacion de los renders.
+
+
+
+### Sesión 3 jueves marzo 14
+
+
+#### Micro-sesión 1: apertura.
+
+
+
+
+#### Micro-sesión 2:
+
+
+
+
+
+#### Micro-sesión 3:
+
+
+
+
+
+#### Micro-sesión 4:
+
+
+
+
+#### Micro-sesión 5: cierre
