@@ -594,8 +594,9 @@ En esta microseion me dedique a la actividad 8 que se trata de ahora pintar el c
 
 Ahora voy a experimentar para hacer la pelota mas pequeña, para cambior el tamaño de la pelota se debe cambiar el radio, cambie el radio a 10 y el resultado es este:
 
-![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/b74c1dc2-bcb9-4ae3-b44a-0b86402fc399)
 
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/82c18180-a811-4761-ac83-1612646940b5)
 
 
 
@@ -613,16 +614,87 @@ En esta sesion pude realizar todo lo que propuse en cada microseion, fue una ses
 
 #### Micro-sesión 1: apertura.
 
-
+En esta sesion voy a seguir trabajando en la guia de SDL2 en especifico la idea es poder trabajar en la actividad 9 y 10 y realizarlas con exito 
 
 
 #### Micro-sesión 2:
 
+Empezando con la actividad 9 que se trata de pintar puntos en el lienzo realmente no la entiendo ya que incorpere la parte nueva en el codigo y al copilar mi ventana se sigue viendo igual no note ninguna diferencia, en el documento se detalla que para ver los puntos hay que hacer zoom pero no encuentro la forma de hacer el zoom por lo que investigare mas a fondo para que sirve la linea de codigo nueva preguntandole a chatgpt
+
+la respuesta de chat gpt es la siguiente:
+
+Estas líneas de código dibujan puntos en la ventana en las coordenadas especificadas. SDL_RenderDrawPoint() es una función de la biblioteca SDL que dibuja un solo punto en la ventana utilizando el color de dibujo actual.
+
+El primer punto se dibuja en las coordenadas (WINDOW_WIDTH-1, 0). WINDOW_WIDTH-1 probablemente representa el borde derecho de la ventana (un píxel antes del borde), y 0 sería la coordenada y, por lo tanto, estaría en el borde superior de la ventana.
+
+El segundo punto se dibuja en (WINDOW_WIDTH - 1, 2). Similar al primero, WINDOW_WIDTH - 1 representa el borde derecho de la ventana, y 2 probablemente está a una pequeña distancia desde la parte superior de la ventana.
+
+Estas líneas podrían ser útiles para propósitos de depuración o para fines específicos de diseño de la interfaz de usuario, como marcar puntos específicos en la ventana.
+
+
+Luego de leer la respuesta me acerca a la pantalla y me di cuenta que si estan los dos puntos ahi dibujados muy pequeños, por lo que hare experimentos para agrandarlos 
+
+Con esta linea de codigo puedo agrandar y mover los puntos:
+
+```C
+int pointSize = 20;
+int newX = 500;
+int newY = 100;
+// Dibujar un punto más grande
+for (int i = -pointSize / 2; i <= pointSize / 2; i++) {
+    for (int j = -pointSize / 2; j <= pointSize / 2; j++) {
+        SDL_RenderDrawPoint(renderer, WINDOW_WIDTH - 1 + i, j);
+        SDL_RenderDrawPoint(renderer, newX + i, newY + j);
+    }
+}
+```
+y el resultado es este:
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/f25ca5ae-6940-4d30-bd60-26c2b02fb9b7)
+
+
 
 #### Micro-sesión 3:
 
+Siguiendo con lo que trabaje en la anterior microsesion pense en que esta actividad estaba enfocada para pintar la interfaz del juego con la puntuacion por lo que empece a hacer pruebas con chatgpt para pintar numeros y el codigo resultante es el siguiente:
+
+```C
+// Definir el tamaño del punto
+int pointSize = 4;
+
+// Coordenadas para dibujar el número "2" en la parte superior derecha
+int x = WINDOW_WIDTH - 20; // Coordenada x
+int y = 10; // Coordenada y
+
+// Segmento superior
+SDL_Rect segmentoSuperior = {x, y, pointSize * 5, pointSize};
+// Segmento superior derecho
+SDL_Rect segmentoSuperiorDerecho = {x + pointSize * 4, y + pointSize, pointSize, pointSize * 3};
+// Segmento medio
+SDL_Rect segmentoMedio = {x, y + pointSize * 2, pointSize * 5, pointSize};
+// Segmento inferior izquierdo
+SDL_Rect segmentoInferiorIzquierdo = {x, y + pointSize * 3, pointSize, pointSize * 3};
+// Segmento inferior
+SDL_Rect segmentoInferior = {x, y + pointSize * 6, pointSize * 5, pointSize};
+
+// Dibujar el número "2"
+SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // Color blanco
+SDL_RenderFillRect(renderer, &segmentoSuperior);
+SDL_RenderFillRect(renderer, &segmentoSuperiorDerecho);
+SDL_RenderFillRect(renderer, &segmentoMedio);
+SDL_RenderFillRect(renderer, &segmentoInferiorIzquierdo);
+SDL_RenderFillRect(renderer, &segmentoInferior);
+```
+
+y el resultado en la ventana fue este:
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/7bc2e6fb-71b9-4212-8027-c6d58cc9ff38)
+
+
 
 #### Micro-sesión 4: cierre. 
+
+En esta sesion me propuse la actividad 9 y 10 pero solo me quede realizando la 9 ya que me parecio muy interesante que a raiz de la ubicacion de los puntos se podian hacer otras cosas en la interfaz como el marcador por lo que me lleve toda la sesion en esto. 
 
 
 
