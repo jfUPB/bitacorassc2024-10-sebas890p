@@ -702,10 +702,88 @@ En esta sesion me propuse la actividad 9 y 10 pero solo me quede realizando la 9
 
 #### Micro-sesión 1: apertura.
 
+En esta sesion tengo planeado hacer la actividad 10 que no pude hacer en la anterior, esta se trata sobre un patron de diseño llamado double buffering, en esta sesion me dedicare a investigar y definir el concepto y responder las preguntas que estan propuestas por el profesor
+
 
 #### Micro-sesión 2:
+
+
+El doble bufer como se llama en español hace que una serie de operaciones secuenciales parezcan instantáneas o simultáneas.
+
+un resumen sobre el link que nos proporciono el profesor que habla de doble bufer es el siguiente:
+
+Introducción al parpadeo: El artículo comienza explicando el problema del parpadeo, que ocurre cuando se actualiza una porción de la pantalla mientras el usuario la está viendo, lo que resulta en una imagen intermitente o parpadeante.
+
+Solución de un solo búfer: Se discute la solución inicial al parpadeo, que implica dibujar directamente en la pantalla. Sin embargo, este enfoque puede causar parpadeo debido a la forma en que el hardware de la pantalla funciona.
+
+Introducción al doble búfer: Luego, se introduce el concepto de doble búfer, que implica utilizar dos áreas de memoria para renderizar imágenes. Mientras se muestra una imagen en la pantalla, la siguiente se renderiza en un búfer oculto.
+
+Implementación de doble búfer: Se explica cómo implementar el doble búfer en un programa de gráficos o juego. Esto generalmente implica tener una estructura de datos para almacenar los píxeles de la imagen, renderizar en un búfer y luego intercambiar los búferes para mostrar la imagen en la pantalla.
+
+Beneficios del doble búfer: El artículo discute los beneficios del doble búfer, que incluyen eliminar el parpadeo y mejorar la eficiencia del renderizado.
+
+Estrategias de actualización: También se exploran estrategias adicionales para mejorar el rendimiento, como la actualización de solo las partes modificadas de la imagen.
+
+Optimizaciones avanzadas: Por último, el artículo menciona algunas optimizaciones avanzadas que pueden mejorar aún más el rendimiento del doble búfer.
+
+
+para tener mas claro este tema le pedi a chatgpt que me hiciera una explicacion del funcionamiento del doble bufer.
+
+El doble búfer es una técnica utilizada en gráficos y animación para evitar el parpadeo y mejorar la eficiencia del renderizado en tiempo real. Funciona mediante la utilización de dos áreas de memoria, conocidas como búferes, para almacenar temporalmente la imagen que se va a mostrar en la pantalla.
+
+Inicialización: Cuando se inicia el programa, se crean dos búferes de imagen en la memoria de la computadora. Cada búfer es esencialmente una cuadrícula de píxeles que representa la imagen que se mostrará en la pantalla.
+
+Renderizado en el búfer oculto: El programa comienza renderizando la imagen en uno de los búferes, conocido como el búfer de "trabajo" o "oculto". Este búfer no es visible para el usuario en este momento.
+
+Visualización del búfer visible: Mientras se renderiza la imagen en el búfer oculto, el contenido del otro búfer, conocido como el búfer de "presentación" o "visible", se muestra en la pantalla. Es esta imagen la que el usuario ve en el monitor.
+
+Intercambio de búferes: Una vez que la imagen ha sido completamente renderizada en el búfer oculto, se intercambian los búferes. El búfer oculto ahora se convierte en el búfer visible, y viceversa. Este intercambio es instantáneo y ocurre en un solo paso de sincronización de la pantalla, lo que garantiza que no se vea un parpadeo en la pantalla.
+
+Repetición del proceso: El proceso de renderizado y cambio de búferes continúa en un bucle mientras el programa se está ejecutando. Esto permite que la imagen se actualice en la pantalla de manera suave y sin parpadeo, ya que siempre se muestra una imagen completa y coherente al usuario.
+
+En resumen, el doble búfer funciona creando dos áreas de memoria para almacenar temporalmente la imagen que se va a mostrar en la pantalla. Mientras se muestra una imagen en la pantalla, se renderiza la siguiente en un búfer oculto. Luego, se intercambian los búferes para mostrar la nueva imagen renderizada en la pantalla sin parpadeo ni artefactos visuales. Esto permite una experiencia visual suave y continua en aplicaciones gráficas y de animación en tiempo real.
+
+En mis propias palabras entiendo el doble bufer como una empacadora de alimentos, mientras unos alimentos estan siendo empacados por otro lado los siguientes alimentos a empacar ya estan siendo preparados esto permite que todo sea mas fluido, intuyo que esto sirve para los fps del programa. 
+
+
 
 #### Micro-sesión 3:
 
 
+¿Qué pasa si quitas la función SDL_RenderPresent(renderer)?
+
+Si quitas la función SDL_RenderPresent(renderer), el contenido que hayas dibujado en el búfer del renderizador (renderer) no se mostrará en la pantalla.
+
+SDL_RenderPresent(renderer) es la función que actualiza el lienzo de la ventana con el contenido dibujado en el búfer del renderizador. Si no se llama a esta función, el contenido permanecerá en el búfer y no se mostrará en la ventana.
+
+Por lo tanto, si quitas la función SDL_RenderPresent(renderer):
+
+No verás los cambios realizados en la ventana.
+El contenido dibujado en el búfer del renderizador permanecerá invisible para el usuario.
+
+
+Mira de nuevo el enlace donde te explican en qué consiste el patrón double buffering. ¿Puedes explicar cómo se está aplicando en el código del render?
+
+
+El enlace proporcionado ("https://gameprogrammingpatterns.com/double-buffer.html") describe el patrón de "Double Buffering" en el contexto de la programación de juegos y gráficos. En este patrón, se utilizan dos áreas de memoria para renderizar imágenes: un búfer de trabajo y un búfer de presentación. Esto ayuda a evitar el parpadeo y otros artefactos visuales al mostrar imágenes en la pantalla.
+
+Ahora, veamos cómo se está aplicando el patrón de "Double Buffering" en el código de renderizado proporcionado:
+
+```c
+SDL_RenderDrawPoint(renderer, WINDOW_WIDTH-1, 0);
+SDL_RenderDrawPoint(renderer, WINDOW_WIDTH - 1, 2);
+SDL_RenderPresent(renderer);
+```
+
+En estas líneas de código:
+
+1. Se están dibujando dos puntos en el búfer del renderizador (`renderer`). Estos puntos están en las coordenadas `(WINDOW_WIDTH-1, 0)` y `(WINDOW_WIDTH - 1, 2)`.
+2. Luego, se llama a `SDL_RenderPresent(renderer)`. Esta función actualiza el lienzo de la ventana con el contenido dibujado en el búfer del renderizador y muestra los cambios en la pantalla.
+
+En este caso, el patrón de "Double Buffering" se está aplicando de manera implícita a través del uso de la función `SDL_RenderPresent()`. Cuando se llama a esta función, se intercambian los búferes de trabajo y de presentación, lo que garantiza que el contenido dibujado en el búfer de trabajo se muestre en la pantalla sin parpadeo ni artefactos visuales.
+
+
+
 #### Micro-sesión 4: cierre. 
+
+Como conclusion de esta sesion, el doble bufer funciona para mantener una fluidez adecuada en el programa y que no tenga errores como por ejemplo de vibraciones o parpadeos en la interfaz por fallas en la actualizacion de los renders.
