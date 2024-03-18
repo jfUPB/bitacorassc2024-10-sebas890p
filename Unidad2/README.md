@@ -1057,3 +1057,57 @@ ball.x += 20* delta_time; ball.y += 20* delta_time;: Actualiza la posición de l
 #### Micro-sesión 5: cierre
 
 En esta sesion ya termine con la guia de SDL2 y la investigacion, pude avanzar en varios conceptos y en la interfaz del pong, en las siguientes debo implementar los conceptos en el codigo.
+
+
+
+
+
+## Semana 9
+
+
+### Sesión 1 lunes marzo 18
+
+#### Micro-sesión 1: apertura.
+
+
+
+
+#### Micro-sesión 2:
+
+
+
+
+#### Micro-sesión 3:
+
+
+
+
+
+
+#### Micro-sesión 4:
+
+
+
+
+
+
+### Sesión 1 miercoles marzo 20
+
+#### Micro-sesión 1: apertura.
+
+
+
+
+#### Micro-sesión 2:
+
+
+
+
+#### Micro-sesión 3:
+
+
+
+
+
+
+#### Micro-sesión 4:
