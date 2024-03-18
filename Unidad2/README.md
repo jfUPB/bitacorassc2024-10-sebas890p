@@ -795,24 +795,265 @@ Como conclusion de esta sesion, el doble bufer funciona para mantener una fluide
 
 #### Micro-sesión 1: apertura.
 
-
+En sesion autonoma seguire en la guia de SDL2 especificamente en la actividad 11 de FPS.
 
 
 #### Micro-sesión 2:
 
+Comenzare esta micro sesion definiendo que son los fps:
 
+Los FPS, o "fotogramas/cuadros por segundo", indican la cantidad de imágenes que se muestran en la pantalla durante un segundo. Cuanto más alto sea este número, más suave y realista será la experiencia de juego para el usuario.
+
+Luego es profesor propone este analisis 
+
+En términos muy simplistas, pero útiles para la discución, un frame sería una pasada por el loop. Entonces los frames por segundo serían cuántas veceses tu aplicación interactiva hace un loop completo por segundo. Si una aplicación interactiva se ejecuta a 60 fps ¿Cuánto tiempo transcurre entre frame y frame?
+
+para saber el tiempo que trancurre entre cada frame debemos dividir la cantidad de fps por el tiempo, si el programa corre a 60fps quiere decir que por cada segundo hay 60 imagenes por lo tanto dividimos 1 entre 60:
+
+1/60 = 0.0167 
+
+por lo tanto entre cada frame transcurre 16.7 milisegundos. 
 
 
 
 #### Micro-sesión 3:
 
+El profesor pregunta sobre el funcionamiento del siguiente codigo 
+
+```C
+
+#include <stdio.h>
+#include <SDL.h>
+
+#define TRUE 1
+#define FALSE 0
+#define WINDOW_WIDTH 800
+#define WINDOW_HEIGHT 600
+#define FPS 30
+#define FRAME_TARGET_TIME (1000/FPS)
+
+SDL_Window* window = NULL;
+SDL_Renderer *renderer = NULL;
+int gameRunning = FALSE;
+
+struct ball {
+  float x;
+  float y;
+  float width;
+  float height;
+}ball;
+
+void showRenderDriversInfo(void) {
+  int numRenderDrivers = SDL_GetNumRenderDrivers();
+  printf("Número de drivers de renderizado disponibles: %d\n", numRenderDrivers);
+
+  for (int i = 0; i < numRenderDrivers; i++) {
+    SDL_RendererInfo info;
+    if (SDL_GetRenderDriverInfo(i, &info) == 0) {
+      printf("Driver %d: %s\n", i, info.name);
+    }
+  }
+}
+
+void showSelectedRederer(void) {
+  // Asumiendo que tienes un SDL_Renderer* llamado renderer que ya fue creado
+
+  SDL_RendererInfo rendererInfo;
+  if (SDL_GetRendererInfo(renderer, &rendererInfo) == 0) {
+    printf("Driver de renderizado seleccionado: %s\n", rendererInfo.name);
+  }
+  else {
+    printf("Error al obtener la información del renderizador: %s\n", SDL_GetError());
+  }
+
+}
+
+
+int init_window(void){
+
+  if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+    printf("Error SDL_Init\n");
+    return FALSE;
+  }
+  showRenderDriversInfo();
+
+  window = SDL_CreateWindow(
+    "My first Window",
+    SDL_WINDOWPOS_CENTERED,
+    SDL_WINDOWPOS_CENTERED,
+    WINDOW_WIDTH,
+    WINDOW_HEIGHT,
+    SDL_WINDOW_SHOWN);
+  if (window == NULL) {
+    printf("Error SDL_CreateWindow\n");
+    return FALSE;
+  }
+
+  renderer = SDL_CreateRenderer(window, -1, 0);
+  if (renderer == NULL) {
+    printf("Error SDL_CreateRenderer\n");
+    return FALSE;
+  }
+
+  showSelectedRederer();
+
+  return TRUE;
+}
+
+void process_input(void) {
+  SDL_Event event;
+  SDL_PollEvent(&event);
+
+  switch (event.type) {
+  case SDL_QUIT:
+    gameRunning = FALSE;
+    break;
+  case SDL_KEYDOWN:
+    if (event.key.keysym.sym == SDLK_ESCAPE) {
+      gameRunning = FALSE;
+    }
+    break;
+  }
+}
+
+void update(void) {
+  static int last_frame_time = 0;
+
+//  while (!SDL_TICKS_PASSED(SDL_GetTicks(), last_frame_time + FRAME_TARGET_TIME));
+  int time_to_wait = FRAME_TARGET_TIME - (SDL_GetTicks() - last_frame_time);
+  if (time_to_wait > 0 && time_to_wait <= FRAME_TARGET_TIME) {
+    SDL_Delay(time_to_wait);
+  }
+
+  float delta_time = (SDL_GetTicks() - last_frame_time) / 1000.0F;
+  last_frame_time = SDL_GetTicks();
+
+  ball.x += 20* delta_time;
+  ball.y += 20* delta_time;
+
+}
+
+void DrawCircle(SDL_Renderer* renderer, int cx, int cy, int radius) {
+  for (int y = -radius; y <= radius; y++) {
+    for (int x = -radius; x <= radius; x++) {
+      if (x * x + y * y <= radius * radius) {
+        SDL_RenderDrawPoint(renderer, cx + x, cy + y);
+      }
+    }
+  }
+}
+
+void render(void) {
+
+  // Limpia el "lienzo" en este frame (?)
+  SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Color de fondo: negro
+  SDL_RenderClear(renderer);
+
+  // Dibuja el rectángulo, pero aún no lo muestra
+  SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Color del rectángulo: rojo
+  SDL_Rect ball_rect;
+  ball_rect.x = (int)ball.x; // Posición x del rectángulo
+  ball_rect.y = (int)ball.y; // Posición y del rectángulo
+  ball_rect.w = (int)ball.width; // Ancho del rectángulo
+  ball_rect.h = (int)ball.height; // Alto del rectángulo
+  SDL_RenderFillRect(renderer, &ball_rect);
+
+  // Actualiza el lienzo
+  SDL_RenderPresent(renderer);
+}
+
+void setup(void) {
+  gameRunning = init_window();
+  ball.x = 20;
+  ball.y = 20;
+  ball.width = 15;
+  ball.height = 15;
+}
+
+void clean() {
+  SDL_DestroyRenderer(renderer);
+  SDL_DestroyWindow(window);
+  SDL_Quit();
+}
+
+int main(int argc, char* argv[]) {
+  setup();
+  while (gameRunning) {
+    // El concepto de gameloop para correr una aplicación
+    // interactiva
+    process_input(); // Leo las entradas
+    update();        // calculo las físicas
+    render();        // actualizo las salidas
+  }
+  clean();
+  return 0;
+}
+```
+
+su funcionamiento es el siguiente:
+
+es un programa simple en SDL que crea una ventana y dibuja un rectángulo rojo (que representa la "pelota") en ella. Aquí está el funcionamiento detallado del código:
+
+Encabezados y definiciones: El programa incluye los encabezados necesarios de las bibliotecas stdio.h y SDL.h, así como algunas definiciones de constantes como TRUE, FALSE, WINDOW_WIDTH, WINDOW_HEIGHT, FPS (cuadros por segundo) y FRAME_TARGET_TIME (tiempo objetivo de fotograma).
+
+Variables globales: Declara algunas variables globales como window, renderer, gameRunning y una estructura ball para representar las características de la pelota.
+
+Funciones auxiliares: Define funciones auxiliares como showRenderDriversInfo, showSelectedRederer e init_window para inicializar SDL, crear la ventana y el renderizador, y mostrar información sobre los controladores de renderizado.
+
+Función process_input: Procesa la entrada del usuario. En este caso, detecta si el usuario ha presionado la tecla de escape para salir del juego.
+
+Función update: Actualiza la posición de la pelota en cada fotograma. Calcula el tiempo transcurrido entre fotogramas y utiliza esta información para actualizar la posición de la pelota.
+
+Función DrawCircle: Una función auxiliar que dibuja un círculo utilizando puntos en el renderizador.
+
+Función render: Renderiza el estado actual del juego en la ventana. Limpia el renderizador, dibuja el rectángulo rojo (pelota) en la posición actualizada y actualiza el renderizador para mostrar los cambios en la ventana.
+
+Función setup: Inicializa el estado inicial del juego. En este caso, establece la posición inicial de la pelota.
+
+Función clean: Limpia y libera los recursos utilizados por SDL al finalizar el programa.
+
+Función main: La función principal del programa. Inicializa el juego, entra en el bucle principal del juego donde se procesa la entrada, se actualiza el estado del juego y se renderiza en cada fotograma, y finalmente limpia los recursos antes de salir.
 
 
 
 
 #### Micro-sesión 4:
 
+```C
+void update(void) {
+  static int last_frame_time = 0;
+
+//  while (!SDL_TICKS_PASSED(SDL_GetTicks(), last_frame_time + FRAME_TARGET_TIME));
+  int time_to_wait = FRAME_TARGET_TIME - (SDL_GetTicks() - last_frame_time);
+  if (time_to_wait > 0 && time_to_wait <= FRAME_TARGET_TIME) {
+    SDL_Delay(time_to_wait);
+  }
+
+  float delta_time = (SDL_GetTicks() - last_frame_time) / 1000.0F;
+  last_frame_time = SDL_GetTicks();
+
+  ball.x += 20* delta_time;
+  ball.y += 20* delta_time;
+}
+```
+
+cómo funciona:
+
+static int last_frame_time = 0;: Esta es una variable estática que almacena el tiempo en milisegundos del último fotograma procesado. Se inicializa en 0 la primera vez que se llama a la función update.
+
+int time_to_wait = FRAME_TARGET_TIME - (SDL_GetTicks() - last_frame_time);: Calcula cuánto tiempo se debe esperar antes de continuar con el siguiente fotograma. Resta el tiempo actual en milisegundos (SDL_GetTicks()) del tiempo del último fotograma (last_frame_time) y lo resta del tiempo objetivo por fotograma (FRAME_TARGET_TIME). Esto da como resultado el tiempo restante para alcanzar el objetivo de tiempo por fotograma.
+
+if (time_to_wait > 0 && time_to_wait <= FRAME_TARGET_TIME) { SDL_Delay(time_to_wait); }: Si el tiempo restante es mayor que 0 y menor o igual al tiempo objetivo por fotograma, se pausa el programa durante ese tiempo usando SDL_Delay. Esto asegura que el juego se ejecute a la velocidad objetivo especificada por FPS.
+
+float delta_time = (SDL_GetTicks() - last_frame_time) / 1000.0F;: Calcula el tiempo transcurrido desde el último fotograma en segundos dividiendo la diferencia entre el tiempo actual y el tiempo del último fotograma por 1000 (para convertir milisegundos a segundos). Esto proporciona una medida de cuánto tiempo ha pasado desde el último fotograma, lo que se utilizará para calcular el desplazamiento de la pelota en función de su velocidad.
+
+last_frame_time = SDL_GetTicks();: Actualiza el tiempo del último fotograma al tiempo actual, para su uso en la próxima llamada a la función update.
+
+ball.x += 20* delta_time; ball.y += 20* delta_time;: Actualiza la posición de la pelota en función del tiempo transcurrido desde el último fotograma. La velocidad de la pelota es constante y se multiplica por el tiempo transcurrido para obtener el desplazamiento en cada eje (x e y). Esto asegura que la velocidad de la pelota sea consistente independientemente de la frecuencia de actualización del fotograma.
+
 
 
 
 #### Micro-sesión 5: cierre
+
+En esta sesion ya termine con la guia de SDL2 y la investigacion, pude avanzar en varios conceptos y en la interfaz del pong, en las siguientes debo implementar los conceptos en el codigo.
