@@ -1070,9 +1070,44 @@ En esta sesion ya termine con la guia de SDL2 y la investigacion, pude avanzar e
 #### Micro-sesión 1: apertura.
 
 
+En esta sesion empezare a implemnetar los conceptos en el reto final que es el juego de pong. 
+
 
 
 #### Micro-sesión 2:
+
+en esta micro sesion empezare implementando el movimientos de las raquetas que es lo mas importante, para esto empece unificando las raquetas en un solo rect, antes las tenia en rect y rect 2, esto me permitia colocar cada una de colores disntintos pero perjudica a la fluidez del juego, entonces para el movimiento de las raquetas hay que incorporar la siguiente linea de codigo en `process_input()` :
+
+```C
+case SDL_KEYDOWN:
+    if (event.key.keysym.sym == SDLK_LEFT)
+        paddle.vel_x = -400;
+    if (event.key.keysym.sym == SDLK_RIGHT)
+        paddle.vel_x = +400;
+    // Nueva raqueta (teclas A y D)
+    if (event.key.keysym.sym == SDLK_a)
+        opposite_paddle.vel_x = -400;
+    if (event.key.keysym.sym == SDLK_d)
+        opposite_paddle.vel_x = +400;
+    break;
+case SDL_KEYUP:
+    if (event.key.keysym.sym == SDLK_LEFT)
+        paddle.vel_x = 0;
+    if (event.key.keysym.sym == SDLK_RIGHT)
+        paddle.vel_x = 0;
+    // Nueva raqueta (teclas A y D)
+    if (event.key.keysym.sym == SDLK_a)
+        opposite_paddle.vel_x = 0;
+    if (event.key.keysym.sym == SDLK_d)
+        opposite_paddle.vel_x = 0;
+    break;
+```
+
+El codigo funciona de la siguiente forma:
+
+Cuando se presiona la tecla de flecha izquierda (SDLK_LEFT), se establece la velocidad horizontal de la raqueta (paddle.vel_x) en un valor negativo, lo que la hace moverse hacia la izquierda
+Cuando se presiona la tecla de flecha derecha (SDLK_RIGHT), se establece la velocidad horizontal de la raqueta (paddle.vel_x) en un valor positivo, lo que la hace moverse hacia la derecha
+Cuando se suelta una de estas teclas, se establece la velocidad horizontal de la raqueta en 0, deteniendo su movimiento
 
 
 
@@ -1080,13 +1115,55 @@ En esta sesion ya termine con la guia de SDL2 y la investigacion, pude avanzar e
 #### Micro-sesión 3:
 
 
+En esta mircro sesion voy a agregar los frames en el juego, para hacer empezamos definiendo 
+
+```C
+#define FPS 60
+#define FRAME_TARGET_TIME (1000/FPS)
+```
+que representa la velocidad deseada del juego en fotogramas por segundo. Luego se calcula FRAME_TARGET_TIME como el tiempo objetivo en milisegundos que debe transcurrir entre cada fotograma para alcanzar la velocidad deseada (1000/FPS)
+
+
+Luego se calcula el tiempo transcurrido con :
+
+```c
+int time_to_wait = FRAME_TARGET_TIME - (SDL_GetTicks() - last_frame_time);
+```
+
+para calcularlo se hace restando el tiempo transcurrido desde el último fotograma (SDL_GetTicks() - last_frame_time) del tiempo objetivo de fotogramas (FRAME_TARGET_TIME). Si el valor de time_to_wait es positivo, significa que se debe esperar antes de renderizar el siguiente fotograma para mantener el ritmo deseado del juego
+
+
+```c
+if (time_to_wait > 0 && time_to_wait <= FRAME_TARGET_TIME)
+    SDL_Delay(time_to_wait);
+
+````
+
+Si time_to_wait es positivo y menor o igual que FRAME_TARGET_TIME, se utiliza la función SDL_Delay() para esperar el tiempo restante antes de renderizar el siguiente fotograma. Esto garantiza que el juego se ejecute a una velocidad cercana al valor deseado de FPS
+
+Cálculo del tiempo transcurrido para la física del juego:
+
+```c
+
+float delta_time = (SDL_GetTicks() - last_frame_time) / 1000.0F;
+```
+
+Se calcula el tiempo transcurrido desde el último fotograma y se convierte a segundos dividiendo por 1000.0 para tener una fracción de segundo. Este delta_time se usa luego para actualizar la lógica del juego, asegurando que el movimiento de los objetos del juego sea suave y proporcional al tiempo que ha pasado desde el último fotograma
+
+Actualización del tiempo del último fotograma:
+
+```c
+
+last_frame_time = SDL_GetTicks();
+```
+
+Finalmente, se actualiza el tiempo del último fotograma para utilizarlo en el siguiente ciclo del bucle del juego
 
 
 
+#### Micro-sesión 4: cierre
 
-#### Micro-sesión 4:
-
-
+En esta sesion pude incorporar al codigo el movimientos de las raquetas y los fps a los que va a funcionar el pong
 
 
 
