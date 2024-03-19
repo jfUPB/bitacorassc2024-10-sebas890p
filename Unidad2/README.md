@@ -1172,10 +1172,46 @@ En esta sesion pude incorporar al codigo el movimientos de las raquetas y los fp
 
 #### Micro-sesión 1: apertura.
 
-
+En esta se sesion tengo planeado  incorporar el movimiento de la pelota y la colision con las raquetas
 
 
 #### Micro-sesión 2:
+
+Empezare en esta micro sesion incorporando el movimiento de la pelota, para hacer esto, el movimiento de la pelota estara en la funcion update para que este se actualice cada segundo, el codigo para incorpar es el siguiente:
+
+```C
+void update(void) {
+    // Calcula el tiempo que se debe esperar antes de renderizar el siguiente fotograma para mantener el ritmo deseado del juego
+    int time_to_wait = FRAME_TARGET_TIME - (SDL_GetTicks() - last_frame_time);
+
+    // Si es necesario esperar para mantener el ritmo del juego, se utiliza SDL_Delay para hacerlo
+    if (time_to_wait > 0 && time_to_wait <= FRAME_TARGET_TIME)
+        SDL_Delay(time_to_wait);
+
+    // Calcula el tiempo transcurrido desde el último fotograma en segundos
+    float delta_time = (SDL_GetTicks() - last_frame_time) / 1000.0F;
+
+    // Actualiza el tiempo del último fotograma
+    last_frame_time = SDL_GetTicks();
+
+    // Actualiza la posición de la pelota en función de su velocidad y el tiempo transcurrido desde el último fotograma
+    ball.x += ball.vel_x * delta_time;
+    ball.y += ball.vel_y * delta_time;
+
+    // Resto del código de colisiones y actualización
+}
+```
+el codigo funciona de la siguiente forma:
+
+time_to_wait: Calcula cuánto tiempo debe esperar el programa antes de renderizar el siguiente fotograma para mantener el ritmo deseado del juego. Si es necesario esperar, se utiliza SDL_Delay() para hacerlo
+
+delta_time: Calcula el tiempo transcurrido desde el último fotograma en segundos. Esto se hace restando el tiempo del último fotograma (last_frame_time) del tiempo actual (SDL_GetTicks()), y luego dividiendo el resultado por 1000 para convertirlo en segundos
+
+last_frame_time: Actualiza el tiempo del último fotograma al tiempo actual. Esto se utiliza para calcular delta_time en el siguiente fotograma
+
+ball.x y ball.y: Actualiza las coordenadas de la pelota en función de sus velocidades (ball.vel_x y ball.vel_y) multiplicadas por delta_time. Esto asegura que el movimiento de la pelota sea suave y proporcional al tiempo transcurrido desde el último fotograma, independientemente de la velocidad de fotogramas del juego
+
+
 
 
 
@@ -1183,8 +1219,41 @@ En esta sesion pude incorporar al codigo el movimientos de las raquetas y los fp
 #### Micro-sesión 3:
 
 
+Ahora voy a incorporar la colision de la pelota con las raquetas, tambien va incorporado en la funcion update
 
+Para detectar colisiones con las raquetas, se comprueba si la pelota intersecta con la zona ocupada por una raqueta en el eje y. Si la pelota llega a la misma altura que una raqueta y su posición horizontal (ball.x) está dentro del rango de la raqueta, entonces se considera una colisión. En ese caso, la pelota rebota cambiando su dirección vertical (ball.vel_y) hacia el lado opuesto
 
+la linea de codigo es la siguiente:
+
+```C
+if (ball.y + ball.height >= paddle.y && ball.x + ball.width >= paddle.x && ball.x <= paddle.x + paddle.width)
+    ball.vel_y = -ball.vel_y;
+if (ball.y <= opposite_paddle.y + opposite_paddle.height && ball.x + ball.width >= opposite_paddle.x &&
+    ball.x <= opposite_paddle.x + opposite_paddle.width)
+    ball.vel_y = -ball.vel_y;
+```
+
+También hay un código adicional para manejar casos especiales de colisión para evitar que la pelota quede atrapada dentro de las raquetas. Por ejemplo, si la pelota está en contacto con el borde de una raqueta, se ajusta su posición horizontal para evitar que quede atrapada.
+
+```C
+// Ajuste de posición para evitar que la pelota quede atrapada en las raquetas
+if (ball.y + ball.height >= paddle.y && ball.y <= paddle.y + paddle.height) {
+    if (ball.x < paddle.x && ball.x + ball.width > paddle.x) {
+        ball.x = paddle.x - ball.width;
+    }
+    else if (ball.x > paddle.x && ball.x < paddle.x + paddle.width) {
+        ball.x = paddle.x + paddle.width;
+    }
+}
+```
 
 
 #### Micro-sesión 4:
+
+En esta sesion pude incorporar el movimiento de la pelota y la colision ya me quedaria faltando incorporar el marcador, el resultado del codigo hasta ahora es el siguiente:
+
+
+
+https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/27be82ac-d780-4387-9d81-1a83ef07f60a
+
+
