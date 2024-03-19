@@ -7,137 +7,221 @@
 #define FALSE 0
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
+#define FPS 60
+#define FRAME_TARGET_TIME (1000/FPS)
 
+int game_is_running = FALSE;
 SDL_Window* window = NULL;
 SDL_Renderer* renderer = NULL;
-int gameRunning = FALSE;
+int last_frame_time = 0;
 
-void showRenderDriversInfo(void) {
-    int numRenderDrivers = SDL_GetNumRenderDrivers();
-    printf("Número de drivers de renderizado disponibles: %d\n", numRenderDrivers);
+struct game_object {
+    float x;
+    float y;
+    float width;
+    float height;
+    float vel_x;
+    float vel_y;
+} ball, paddle, opposite_paddle;
 
-    for (int i = 0; i < numRenderDrivers; i++) {
-        SDL_RendererInfo info;
-        if (SDL_GetRenderDriverInfo(i, &info) == 0) {
-            printf("Driver %d: %s\n", i, info.name);
-        }
-    }
-}
-
-void showSelectedRederer(void) {
-    // Asumiendo que tienes un SDL_Renderer* llamado renderer que ya fue creado
-
-    SDL_RendererInfo rendererInfo;
-    if (SDL_GetRendererInfo(renderer, &rendererInfo) == 0) {
-        printf("Driver de renderizado seleccionado: %s\n", rendererInfo.name);
-    }
-    else {
-        printf("Error al obtener la información del renderizador: %s\n", SDL_GetError());
-    }
-
-}
-
-
-int init_window(void) {
-
+int initialize_window(void) {
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
-        printf("Error SDL_Init\n");
+        fprintf(stderr, "Error initializing SDL.\n");
         return FALSE;
     }
-    showRenderDriversInfo();
-
     window = SDL_CreateWindow(
-        "My first Window",
+        NULL,
         SDL_WINDOWPOS_CENTERED,
         SDL_WINDOWPOS_CENTERED,
         WINDOW_WIDTH,
         WINDOW_HEIGHT,
-        SDL_WINDOW_SHOWN);
-    if (window == NULL) {
-        printf("Error SDL_CreateWindow\n");
+        SDL_WINDOW_BORDERLESS
+    );
+    if (!window) {
+        fprintf(stderr, "Error creating SDL Window.\n");
         return FALSE;
     }
-
     renderer = SDL_CreateRenderer(window, -1, 0);
-    if (renderer == NULL) {
-        printf("Error SDL_CreateRenderer\n");
+    if (!renderer) {
+        fprintf(stderr, "Error creating SDL Renderer.\n");
         return FALSE;
     }
-
-    showSelectedRederer();
-
     return TRUE;
 }
 
 void process_input(void) {
     SDL_Event event;
     SDL_PollEvent(&event);
-
     switch (event.type) {
     case SDL_QUIT:
-        gameRunning = FALSE;
+        game_is_running = FALSE;
         break;
     case SDL_KEYDOWN:
-        if (event.key.keysym.sym == SDLK_ESCAPE) {
-            gameRunning = FALSE;
-        }
+        if (event.key.keysym.sym == SDLK_ESCAPE)
+            game_is_running = FALSE;
+        if (event.key.keysym.sym == SDLK_LEFT)
+            paddle.vel_x = -400;
+        if (event.key.keysym.sym == SDLK_RIGHT)
+            paddle.vel_x = +400;
+        // Nueva raqueta (teclas A y D)
+        if (event.key.keysym.sym == SDLK_a)
+            opposite_paddle.vel_x = -400;
+        if (event.key.keysym.sym == SDLK_d)
+            opposite_paddle.vel_x = +400;
+        break;
+    case SDL_KEYUP:
+        if (event.key.keysym.sym == SDLK_LEFT)
+            paddle.vel_x = 0;
+        if (event.key.keysym.sym == SDLK_RIGHT)
+            paddle.vel_x = 0;
+        // Nueva raqueta (teclas A y D)
+        if (event.key.keysym.sym == SDLK_a)
+            opposite_paddle.vel_x = 0;
+        if (event.key.keysym.sym == SDLK_d)
+            opposite_paddle.vel_x = 0;
         break;
     }
+}
+
+void setup(void) {
+    ball.width = 15;
+    ball.height = 15;
+    ball.x = WINDOW_WIDTH / 2 - ball.width / 2;
+    ball.y = WINDOW_HEIGHT / 2 - ball.height / 2;
+    ball.vel_x = 300;
+    ball.vel_y = 300;
+
+    paddle.width = 100;
+    paddle.height = 20;
+    paddle.x = (WINDOW_WIDTH / 2) - (paddle.width / 2);
+    paddle.y = WINDOW_HEIGHT - 40;
+    paddle.vel_x = 0;
+    paddle.vel_y = 0;
+
+    // Nueva raqueta
+    opposite_paddle = paddle;
+    opposite_paddle.y = 20;  // Ajusta la posición inicial de la raqueta opuesta si es necesario
+    opposite_paddle.vel_x = 0;
+    opposite_paddle.vel_y = 0;
 }
 
 void update(void) {
+    int time_to_wait = FRAME_TARGET_TIME - (SDL_GetTicks() - last_frame_time);
 
+    if (time_to_wait > 0 && time_to_wait <= FRAME_TARGET_TIME)
+        SDL_Delay(time_to_wait);
 
-}
+    float delta_time = (SDL_GetTicks() - last_frame_time) / 1000.0F;
 
-void DrawCircle(SDL_Renderer* renderer, int cx, int cy, int radius) {
-    for (int y = -radius; y <= radius; y++) {
-        for (int x = -radius; x <= radius; x++) {
-            if (x * x + y * y <= radius * radius) {
-                SDL_RenderDrawPoint(renderer, cx + x, cy + y);
-            }
+    last_frame_time = SDL_GetTicks();
+
+    ball.x += ball.vel_x * delta_time;
+    ball.y += ball.vel_y * delta_time;
+    paddle.x += paddle.vel_x * delta_time;
+    paddle.y += paddle.vel_y * delta_time;
+    opposite_paddle.x += opposite_paddle.vel_x * delta_time;
+    opposite_paddle.y += opposite_paddle.vel_y * delta_time;
+
+    // Colisión con los bordes para la pelota
+    if (ball.x <= 0 || ball.x + ball.width >= WINDOW_WIDTH)
+        ball.vel_x = -ball.vel_x;
+
+    // Colisión con las raquetas
+    if (ball.y + ball.height >= paddle.y && ball.x + ball.width >= paddle.x && ball.x <= paddle.x + paddle.width)
+        ball.vel_y = -ball.vel_y;
+
+    if (ball.y <= opposite_paddle.y + opposite_paddle.height && ball.x + ball.width >= opposite_paddle.x &&
+        ball.x <= opposite_paddle.x + opposite_paddle.width)
+        ball.vel_y = -ball.vel_y;
+
+    // Ajuste de posición para evitar que la pelota quede atrapada en las raquetas
+    if (ball.y + ball.height >= paddle.y && ball.y <= paddle.y + paddle.height) {
+        if (ball.x < paddle.x && ball.x + ball.width > paddle.x) {
+            ball.x = paddle.x - ball.width;
         }
+        else if (ball.x > paddle.x && ball.x < paddle.x + paddle.width) {
+            ball.x = paddle.x + paddle.width;
+        }
+    }
+
+    if (ball.y + ball.height >= opposite_paddle.y && ball.y <= opposite_paddle.y + opposite_paddle.height) {
+        if (ball.x < opposite_paddle.x && ball.x + ball.width > opposite_paddle.x) {
+            ball.x = opposite_paddle.x - ball.width;
+        }
+        else if (ball.x > opposite_paddle.x && ball.x < opposite_paddle.x + opposite_paddle.width) {
+            ball.x = opposite_paddle.x + opposite_paddle.width;
+        }
+    }
+
+    // Resto del código de colisiones
+
+    // Resto del código de actualización
+
+    // Resetea la posición de la pelota si toca la parte superior o inferior de la pantalla
+    if (ball.y <= 0 || ball.y + ball.height >= WINDOW_HEIGHT) {
+        ball.x = WINDOW_WIDTH / 2 - ball.width / 2;
+        ball.y = WINDOW_HEIGHT / 2 - ball.height / 2;
     }
 }
 
-
 void render(void) {
-    SDL_Rect rect;
-    rect.x = 150; // Posición x del rectángulo
-    rect.y = 0; // Posición y del rectángulo
-    rect.w = 100; // Ancho del rectángulo
-    rect.h = 20; // Alto del rectángulo
+    // Cambiar el color del fondo a negro
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderClear(renderer);
+
+    // Dibujar la pelota
+    SDL_Rect ball_rect = {
+        (int)ball.x,
+        (int)ball.y,
+        (int)ball.width,
+        (int)ball.height
+    };
+    SDL_SetRenderDrawColor(renderer, 255 , 255, 0, 255);
+    SDL_RenderFillRect(renderer, &ball_rect);
 
     
-    // Dibuja el rectángulo, pero aún no lo muestra
-    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Color del rectángulo: rojo
-    SDL_RenderFillRect(renderer, &rect);
+    SDL_SetRenderDrawColor(renderer, 200, 200, 400, 800);
 
-    // Actualiza el lienzo
+    // Dibujar la raqueta principal
+    SDL_Rect paddle_rect = {
+        (int)paddle.x,
+        (int)paddle.y,
+        (int)paddle.width,
+        (int)paddle.height
+    };
+    SDL_RenderFillRect(renderer, &paddle_rect);
+
+    // Dibujar la raqueta opuesta
+    SDL_Rect opposite_paddle_rect = {
+        (int)opposite_paddle.x,
+        (int)opposite_paddle.y,
+        (int)opposite_paddle.width,
+        (int)opposite_paddle.height
+    };
+    SDL_RenderFillRect(renderer, &opposite_paddle_rect);
+
     SDL_RenderPresent(renderer);
-
-
-
-    SDL_Rect rect2;
-    rect2.x = 500; // Posición x del rectángulo
-    rect2.y = 580; // Posición y del rectángulo
-    rect2.w = 100; // Ancho del rectángulo
-    rect2.h = 20; // Alto del rectángulo
-
-   
-
-    // Dibuja el rectángulo, pero aún no lo muestra
-    SDL_SetRenderDrawColor(renderer, 200, 200, 400, 800); // Color del rectángulo: rojo
-    SDL_RenderFillRect(renderer, &rect2);
-
-    // Actualiza el lienzo
-    SDL_RenderPresent(renderer);
-
-    // Dibuja el círculo
-    SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255); // Amarillo
-    DrawCircle(renderer, 400, 360, 10); // Dibuja un círculo en (320, 240) con radio 100.
-
-
-
 }
+
+void destroy_window(void) {
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+}
+
+int main(int argc, char* args[]) {
+    game_is_running = initialize_window();
+    setup();
+
+    while (game_is_running) {
+        process_input();
+        update();
+        render();
+    }
+
+    destroy_window();
+    return;
+}
+
+
 ```
