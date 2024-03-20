@@ -2,6 +2,7 @@
 ```C
 #include <stdio.h>
 #include <SDL.h>
+#include <SDL_ttf.h>
 
 #define TRUE 1
 #define FALSE 0
@@ -14,6 +15,9 @@ int game_is_running = FALSE;
 SDL_Window* window = NULL;
 SDL_Renderer* renderer = NULL;
 int last_frame_time = 0;
+int player_score = 0;
+int opposite_player_score = 0;
+TTF_Font* font = NULL;
 
 struct game_object {
     float x;
@@ -46,6 +50,15 @@ int initialize_window(void) {
         fprintf(stderr, "Error creating SDL Renderer.\n");
         return FALSE;
     }
+    if (TTF_Init() != 0) {
+        fprintf(stderr, "Error initializing SDL_ttf.\n");
+        return FALSE;
+    }
+    font = TTF_OpenFont("arial.ttf", 24); // Cambiar "arial.ttf" por el archivo de fuente que desees utilizar
+    if (!font) {
+        fprintf(stderr, "Error loading font.\n");
+        return FALSE;
+    }
     return TRUE;
 }
 
@@ -63,7 +76,6 @@ void process_input(void) {
             paddle.vel_x = -400;
         if (event.key.keysym.sym == SDLK_RIGHT)
             paddle.vel_x = +400;
-        // Nueva raqueta (teclas A y D)
         if (event.key.keysym.sym == SDLK_a)
             opposite_paddle.vel_x = -400;
         if (event.key.keysym.sym == SDLK_d)
@@ -74,7 +86,6 @@ void process_input(void) {
             paddle.vel_x = 0;
         if (event.key.keysym.sym == SDLK_RIGHT)
             paddle.vel_x = 0;
-        // Nueva raqueta (teclas A y D)
         if (event.key.keysym.sym == SDLK_a)
             opposite_paddle.vel_x = 0;
         if (event.key.keysym.sym == SDLK_d)
@@ -98,9 +109,8 @@ void setup(void) {
     paddle.vel_x = 0;
     paddle.vel_y = 0;
 
-    // Nueva raqueta
     opposite_paddle = paddle;
-    opposite_paddle.y = 20;  // Ajusta la posición inicial de la raqueta opuesta si es necesario
+    opposite_paddle.y = 20;
     opposite_paddle.vel_x = 0;
     opposite_paddle.vel_y = 0;
 }
@@ -122,11 +132,9 @@ void update(void) {
     opposite_paddle.x += opposite_paddle.vel_x * delta_time;
     opposite_paddle.y += opposite_paddle.vel_y * delta_time;
 
-    // Colisión con los bordes para la pelota
     if (ball.x <= 0 || ball.x + ball.width >= WINDOW_WIDTH)
         ball.vel_x = -ball.vel_x;
 
-    // Colisión con las raquetas
     if (ball.y + ball.height >= paddle.y && ball.x + ball.width >= paddle.x && ball.x <= paddle.x + paddle.width)
         ball.vel_y = -ball.vel_y;
 
@@ -134,7 +142,6 @@ void update(void) {
         ball.x <= opposite_paddle.x + opposite_paddle.width)
         ball.vel_y = -ball.vel_y;
 
-    // Ajuste de posición para evitar que la pelota quede atrapada en las raquetas
     if (ball.y + ball.height >= paddle.y && ball.y <= paddle.y + paddle.height) {
         if (ball.x < paddle.x && ball.x + ball.width > paddle.x) {
             ball.x = paddle.x - ball.width;
@@ -153,36 +160,30 @@ void update(void) {
         }
     }
 
-    // Resto del código de colisiones
-
-    // Resto del código de actualización
-
-    // Resetea la posición de la pelota si toca la parte superior o inferior de la pantalla
     if (ball.y <= 0 || ball.y + ball.height >= WINDOW_HEIGHT) {
         ball.x = WINDOW_WIDTH / 2 - ball.width / 2;
         ball.y = WINDOW_HEIGHT / 2 - ball.height / 2;
+        if (ball.y <= 0)
+            opposite_player_score++;
+        else
+            player_score++;
     }
 }
 
 void render(void) {
-    // Cambiar el color del fondo a negro
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
 
-    // Dibujar la pelota
     SDL_Rect ball_rect = {
         (int)ball.x,
         (int)ball.y,
         (int)ball.width,
         (int)ball.height
     };
-    SDL_SetRenderDrawColor(renderer, 255 , 255, 0, 255);
+    SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
     SDL_RenderFillRect(renderer, &ball_rect);
 
-    
-    SDL_SetRenderDrawColor(renderer, 200, 200, 400, 800);
-
-    // Dibujar la raqueta principal
+    SDL_SetRenderDrawColor(renderer, 200, 200, 200, 255);
     SDL_Rect paddle_rect = {
         (int)paddle.x,
         (int)paddle.y,
@@ -191,7 +192,6 @@ void render(void) {
     };
     SDL_RenderFillRect(renderer, &paddle_rect);
 
-    // Dibujar la raqueta opuesta
     SDL_Rect opposite_paddle_rect = {
         (int)opposite_paddle.x,
         (int)opposite_paddle.y,
@@ -200,12 +200,26 @@ void render(void) {
     };
     SDL_RenderFillRect(renderer, &opposite_paddle_rect);
 
+    char score_text[64];
+    sprintf_s(score_text, sizeof(score_text), "Player: %d | Opponent: %d", player_score, opposite_player_score);
+    SDL_Color text_color = { 255, 255, 255, 255 };
+    SDL_Surface* text_surface = TTF_RenderText_Solid(font, score_text, text_color);
+    SDL_Texture* text_texture = SDL_CreateTextureFromSurface(renderer, text_surface);
+    int text_width, text_height;
+    SDL_QueryTexture(text_texture, NULL, NULL, &text_width, &text_height);
+    SDL_Rect text_rect = { 10, 10, text_width, text_height };
+    SDL_RenderCopy(renderer, text_texture, NULL, &text_rect);
+    SDL_DestroyTexture(text_texture);
+    SDL_FreeSurface(text_surface);
+
     SDL_RenderPresent(renderer);
 }
 
 void destroy_window(void) {
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
+    TTF_CloseFont(font);
+    TTF_Quit();
     SDL_Quit();
 }
 
@@ -220,7 +234,7 @@ int main(int argc, char* args[]) {
     }
 
     destroy_window();
-    return;
+    return 0;
 }
 
 
