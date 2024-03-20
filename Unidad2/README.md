@@ -1257,3 +1257,68 @@ En esta sesion pude incorporar el movimiento de la pelota y la colision ya me qu
 https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/27be82ac-d780-4387-9d81-1a83ef07f60a
 
 
+### Sesión 3 jueves marzo 21
+
+
+#### Micro-sesión 1: apertura.
+
+
+En esta sesion autonoma tengo planeado hacer lo que me falta del pong que es poner el marcador.
+
+
+
+
+#### Micro-sesión 2:
+
+
+Para poder poner el marcador me estuvo ayudando de chatgpt, lo primero que hice para poner el marcador es agregar la libreria SDL_ttf esta libreria es para poder agregar texto y tiene las siguientes funciones:
+
+Cargar fuentes TrueType: SDL_ttf te permite cargar fuentes TrueType desde archivos en el disco duro o desde la memoria. Esto significa que puedes utilizar una amplia variedad de fuentes para mostrar texto en tus aplicaciones SDL
+
+Renderizar texto: Una vez que hayas cargado una fuente TrueType, puedes usar SDL_ttf para renderizar texto en una superficie SDL. Puedes especificar el texto, el color, el tamaño y la ubicación donde deseas renderizar el texto
+
+Manipular texto: SDL_ttf te permite manipular el texto renderizado de varias maneras, como obtener el ancho y la altura del texto renderizado, obtener información sobre las métricas de la fuente y más
+
+Mejor calidad de texto: Las fuentes TrueType ofrecen una mejor calidad de texto en comparación con las fuentes rasterizadas. Esto significa que el texto renderizado con SDL_ttf se verá más nítido y claro en la pantalla
+
+
+esta la descargue del siguiente github: https://github.com/libsdl-org/SDL_ttf/releases
+
+
+
+#### Micro-sesión 3
+
+
+Luego de descargarla lo que hice fue integrarla en mi archivo de visual estudio como se hizo con las otras bibliotecas:
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/5db55e68-011d-4cdf-a02a-29dbbc05e2cb)
+
+Añadi el .dll al archivo origen 
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/a3558b3c-0097-4597-8433-c5c30663e998)
+
+luego añadi el directorio 
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/b610712c-0312-4e52-af13-19bdcd43ed1e)
+
+luego añadi en el vinculador general
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/20517a35-ca2d-4282-b7d3-955fb15045b5)
+
+y por ultimo en la entrada del vinculador le proporcione la ruta
+
+#### Micro-sesión 4
+
+Luego de seguir todos los pasos y que el codigo no me diera ningun error, al momento de copilar el programa no se abre la ventana y me aparece lo siguiente
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/62cd2ac6-d128-4dda-85bb-db34b3ae78e8)
+
+Error loading font.
+
+Estuve investigando pero no encontre como solucionar el error, encontre que esto podria pasar cuando la biblioteca SDL_tff no tiene permisos del computador pero no encontre como darle esos permisos.
+
+
+#### Micro-sesión 5: cierre
+
+Luego de haber hecho todos los pasos bien para la implementacion del texto para el marcador no pude obtener resultados optimos por el error que comente, sin emabargo hare commit en el archivos de pruebas con el ncodigo y tratare de solucionar este error. 
+
