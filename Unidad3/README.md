@@ -32,16 +32,34 @@
 **Planeación:**
 
 1. ¿Qué voy a trabajar hoy?
+
+Hoy tengo planeado examinar esta nueva unidad 3 a fondo y definer los conceptos que no entienda
+
 2. ¿Cuál es mi objetivo principal para esta sesión?
+
+analizar y comprender lo que se debe hacer 
 
 **Trabajo en concentración**
 
 **Meta-aprendizaje:**
 
 3. ¿Qué he logrado en esta micro-sesión de trabajo?
+
+En esta micro sesion estuve analizando los requerimientos de esta nueva unidad, tambien las actividades y nuevos conceptos, con esto logro entender mejor lo que se pedira en esta unidad y lo que no debo investigar
+
+
 4. ¿Con qué dificultades me encontré y cómo las abordé?
+
+Realmente no tuve alguna dificultad al momento de revisar la unidad
+
 5. ¿Estoy más cerca de alcanzar el objetivo de la sesión? ¿Qué falta por hacer?
-6. ¿Qué he aprendido o reforzado en esta micro-sesión? 
+
+Si, estoy mas cerca, me falta investigar algunos conceptos que no tengo del todo claros lo cual hare en la siguiente micro sesion  
+
+
+6. ¿Qué he aprendido o reforzado en esta micro-sesión?
+
+En esta micro sesion mas que aprender pude reforzar lo que debo hacer en esta unidad 
 
 #### Micro-sesión 2 (25 minutos)
 
@@ -50,9 +68,42 @@
 **Meta-aprendizaje:**
 
 1. ¿Qué he logrado en esta micro-sesión de trabajo?
+
+En esta micro sesion me dedique a definir conceptos que son claves que no tengo del todo claro que son los siguientes:
+
+ENCAPSULAMIENTO
+El encapsulamiento consiste en unir en la Clase las características y comportamientos, esto es, las variables y métodos. Es tener todo esto es una sola entidad. En los lenguajes estructurados esto era imposible. Es evidente que el encapsulamiento se logra gracias a la abstracción y el ocultamiento
+La utilidad del encapsulamiento va por la facilidad para manejar la complejidad, ya que tendremos a las Clases como cajas negras donde sólo se conoce el comportamiento pero no los detalles internos, y esto es conveniente porque nos interesará será conocer qué hace la Clase pero no será necesario saber cómo lo hace
+
+HERENCIA
+ A través de ella los diseñadores pueden crear nuevas clases partiendo de una clase o de una jerarquía de clases preexistente (ya comprobadas y verificadas) evitando con ello el rediseño, la modificación y verificación de la parte ya implementada. La herencia facilita la creación de objetos a partir de otros ya existentes e implica que una subclase obtiene todo el comportamiento (métodos) y eventualmente los atributos (variables) de su superclase.
+Es la relación entre una clase general y otra clase más específica
+
+![hereencia](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/b38d6ba0-a121-472a-9ea0-5434aca255af)
+
+
+POLIMORFISMO
+Se refiere a la propiedad por la que es posible enviar mensajes sintácticamente iguales a objetos de tipos distintos. El único requisito que deben cumplir los objetos que se utilizan de manera polimórfica es saber responder al mensaje que se les envía.
+La apariencia del código puede ser muy diferente dependiendo del lenguaje que se utilice, más allá de las obvias diferencias sintácticas.
+
+![polimorfismo](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/de756e88-6fc6-4af5-ac62-f15df7b26b5e)
+
+Con esta definicion de conceptos logro tener mas claro el Refactoring que debo hacerle al codigo. 
+
+
 2. ¿Con qué dificultades me encontré y cómo las abordé?
+
+No tuve ningua dificultad ya que hay bastante informacion y definiciones de los conceptos en internet
+
+
 3. ¿Estoy más cerca de alcanzar el objetivo de la sesión? ¿Qué falta por hacer?
-4. ¿Qué he aprendido o reforzado en esta micro-sesión? 
+
+Si etoy mas cerca del objetivo, me falta investigar como implementar estos conceptos en C
+
+4. ¿Qué he aprendido o reforzado en esta micro-sesión?
+
+En esta micro sesion reforce los conocimientos de los conceptos claves de esta unidad. 
+
 
 #### Micro-sesión 3 (25 minutos)
 
