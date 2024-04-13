@@ -112,9 +112,47 @@ En esta micro sesion reforce los conocimientos de los conceptos claves de esta u
 **Meta-aprendizaje:**
 
 1. ¿Qué he logrado en esta micro-sesión de trabajo?
+
+En esta micro sesion logre aprender un poco sobre como implementar el polimorfismo en C que puede ser de la siguiente forma:
+
+Definir una estructura base: Define una estructura base que contendrá punteros a funciones para las operaciones comunes que se realizarán en los objetos polimórficos
+
+Definir estructuras derivadas: Define estructuras derivadas que hereden de la estructura base. 
+
+Implementar las funciones comunes: Implementa las funciones comunes para cada tipo de objeto. Estas funciones deben coincidir en firma con los punteros a funciones en la estructura base
+
+Inicializar los punteros a funciones: Inicializa los punteros a funciones de la estructura base con las funciones comunes correspondientes
+
+
+Utilizar el polimorfismo: Ahora puedes crear objetos polimórficos y llamar a las funciones comunes a través de los punteros a funciones en la estructura base
+
+un ejemplo puede ser el siguiente:
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/1cb7d0d4-cfdc-443c-8b18-391738677056)
+
+
+
+
 2. ¿Con qué dificultades me encontré y cómo las abordé?
+
+La dificultad con la que me encontre es un poco la de siempre de buena informacion explicada en internet por lo que la aborde con chatgpt. 
+
+
+
 3. ¿Estoy más cerca de alcanzar el objetivo de la sesión? ¿Qué falta por hacer?
-4. ¿Qué he aprendido o reforzado en esta micro-sesión? 
+
+Si estoy mas cerca, me falta saber como se implementa la herencia y encapsulamiento
+
+
+
+4. ¿Qué he aprendido o reforzado en esta micro-sesión?
+
+
+
+He aprendido sobre los pasos a seguir para implementar el polimorfismo. 
+
+
+
 
 #### Micro-sesión 4. (25 minutos)
 
@@ -123,16 +161,64 @@ En esta micro sesion reforce los conocimientos de los conceptos claves de esta u
 **Meta-aprendizaje:**
 
 1. ¿Qué he logrado en esta micro-sesión de trabajo?
+
+
+En esta micro sesion logre aprender un poco sobre como implementar el encapsulamiento en C 
+
+Partiendo del siguiente ejemplo:
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/5b944e79-44e3-42bf-84ec-8043620f2419)
+
+En este ejemplo, la estructura Objeto tiene un miembro privado llamado dato_privado. Sin embargo, fuera del alcance de la estructura, este miembro es inaccesible directamente. La función crearObjeto se utiliza para crear un nuevo objeto, inicializando su miembro privado. La función obtenerDatoPrivado se utiliza para acceder al dato privado del objeto de manera segura. La función destruirObjeto libera la memoria asignada al objeto.
+
+
+
 2. ¿Con qué dificultades me encontré y cómo las abordé?
+
+
+
+La dificultad con la que me encontre es un poco la de siempre de buena informacion explicada en internet por lo que la aborde con chatgpt.
+
+
+
 3. ¿Estoy más cerca de alcanzar el objetivo de la sesión? ¿Qué falta por hacer?
+
+
+Si estoy mas cerca, me falta seguir con el trabajo de investigacion
+
+
+
 4. ¿Qué he aprendido o reforzado en esta micro-sesión?
+
+Aprendi que para implementar el encapsulamiento debo hacer estructuras privadas
+
+
 
 **Cierre de sesión:**
 
 5. ¿He alcanzado los objetivos planteados al inicio? Si no, ¿por qué y qué puedo mejorar?
+
+
+Si los alcance, porque pude cumplir con los conceptos que queria definir 
+
+
 6. ¿Cuáles fueron los desafíos más significativos de hoy y cómo los superé?
+
+Realmente en esta sesion no tuve desafios significativos ya que se trato mas que todo de investigacion autonoma
+
+
+
 7. Basado en el trabajo de hoy, ¿qué insights importantes he ganado?
+
+
+Como se implementa en C el polimorfismo y el encapsulamiento
+
+
+
 8. ¿Cuáles son los pasos siguientes para continuar avanzando en el proyecto?
+
+Los pasoa a seguir es completar el trabajo de investigacion
+
 
 ### Sesión 2
 
@@ -141,16 +227,41 @@ En esta micro sesion reforce los conocimientos de los conceptos claves de esta u
 **Planeación:**
 
 1. ¿Qué voy a trabajar hoy?
+
+En esta sesion trabajare en los ejercicios 1, 2 y 3 
+
+
 2. ¿Cuál es mi objetivo principal para esta sesión?
+
+Poder aprender analizar y realizar los ejercicios
+
 
 **Trabajo en concentración**
 
 **Meta-aprendizaje:**
 
 3. ¿Qué he logrado en esta micro-sesión de trabajo?
+
+En esta micro sesion logre definir y analizar de arriba las cosas que debo hacer 
+
+
 4. ¿Con qué dificultades me encontré y cómo las abordé?
+
+En esta micro sesion no me encontre con ninguna dificultad
+
+
+
 5. ¿Estoy más cerca de alcanzar el objetivo de la sesión? ¿Qué falta por hacer?
-6. ¿Qué he aprendido o reforzado en esta micro-sesión? 
+
+Si ya se que rumbo agarrar en esta sesion
+
+
+
+6. ¿Qué he aprendido o reforzado en esta micro-sesión?
+
+Reforce como debo planear una sesion
+
+
 
 #### Micro-sesión 2 (25 minutos)
 
@@ -159,9 +270,59 @@ En esta micro sesion reforce los conocimientos de los conceptos claves de esta u
 **Meta-aprendizaje:**
 
 1. ¿Qué he logrado en esta micro-sesión de trabajo?
+
+En esta micro sesion trabaje en el ejercicio 1, que  es un ejemplo básico de cómo se podría implementar el encapsulamiento y la abstracción de datos en C para simular la programación orientada a objetos. Cada función que opera en la estructura Shape se define fuera de la estructura misma, lo que permite encapsular los datos y manipularlos solo a través de funciones específicas. Esto ayuda a mantener el código modular y a reducir la complejidad.
+
+los objetos se crean en el programa principal (main) o en cualquier otro lugar donde se necesiten. La estructura Shape define el modelo de los objetos, y las funciones proporcionadas (Shape_ctor, Shape_dtor, Shape_moveBy, Shape_getX y Shape_getY) se utilizan para operar en estos objetos.
+
+
+
+En C, los objetos se crean generalmente en la pila o en el montón (heap), dependiendo de cómo se declaren y se asignen. En el ejemplo los objetos Shape se crean en la pila porque están siendo declarados como variables locales en la función main(). Cuando una variable se declara dentro de una función sin usar malloc() u otras funciones de asignación dinámica de memoria, se coloca en la pila.
+
+
+Versión 1: Creación de objetos en la pila
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/f5799bce-023b-47de-97e6-5b4800ddcc72)
+
+
+
+
+Versión 2: Creación de objetos en el montón (heap)
+
+
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/85378f7f-6b60-49d7-9a19-4ac009718b2d)
+
+
+
+
+
+Versión 3: Creación de objetos en memoria global
+
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/db83ee33-8f3b-4f98-8b1a-ec9bbfbc9d50)
+
+
+
+
 2. ¿Con qué dificultades me encontré y cómo las abordé?
+
+
+  Este ejercicio de investigacion lo aborde con chatgpt ya que es la mejor herramienta para entender a fondos varios conceptos
+
+
+
+
 3. ¿Estoy más cerca de alcanzar el objetivo de la sesión? ¿Qué falta por hacer?
-4. ¿Qué he aprendido o reforzado en esta micro-sesión? 
+
+
+Si estoy mas cerca debo seguir completando los ejercicios de investigacion
+
+
+4. ¿Qué he aprendido o reforzado en esta micro-sesión?
+
+Aprendi que hay 3 ubicaciones donde se pueden crear objetos 
+
 
 #### Micro-sesión 3 (25 minutos)
 
@@ -170,9 +331,66 @@ En esta micro sesion reforce los conocimientos de los conceptos claves de esta u
 **Meta-aprendizaje:**
 
 1. ¿Qué he logrado en esta micro-sesión de trabajo?
+
+
+En esta micro sesion trabaje en el ejercicio 2 que se trata de responder 2 preguntas las cuales son las siguientes:
+
+
+¿Qué es una clase?
+
+
+Una clase es un concepto fundamental en la programación orientada a objetos (OOP). Representa un modelo o plantilla para crear objetos que comparten propiedades y comportamientos comunes. En esencia, una clase es una descripción de cómo deberían ser los objetos que se basan en ella.
+
+aspectos clave sobre las clases:
+
+Plantilla para objetos: Una clase proporciona una plantilla o un plano para la creación de objetos. Define la estructura y el comportamiento que los objetos de esa clase deberían tener.
+
+Atributos y métodos: Una clase consta de atributos (también llamados miembros de datos) y métodos (también llamados funciones miembro). Los atributos representan datos asociados con la clase, mientras que los métodos representan el comportamiento o las operaciones que pueden realizarse en los objetos de esa clase.
+
+Encapsulación: Las clases permiten encapsular datos y comportamientos relacionados en un solo lugar. Esto significa que los datos están protegidos dentro de la clase y solo pueden ser accedidos o modificados mediante los métodos proporcionados por la clase.
+
+Abstracción: Las clases proporcionan abstracción al ocultar los detalles de implementación y exponer solo la interfaz necesaria para interactuar con los objetos. Los usuarios de la clase no necesitan conocer los detalles internos de cómo se implementa la funcionalidad, solo necesitan conocer cómo usar los métodos públicos de la clase.
+
+Herencia: Una de las características más poderosas de las clases es la capacidad de heredar propiedades y comportamientos de otras clases. Esto permite la reutilización del código y la creación de jerarquías de clases.
+
+
+
+¿Qué es un objeto?
+
+Un objeto es una instancia específica de una clase en programación orientada a objetos (OOP). Representa una entidad concreta del mundo real o un concepto abstracto en un programa de software. Los objetos tienen propiedades (atributos) y comportamientos (métodos) definidos por la clase de la que son instancias.
+
+algunas características clave de los objetos:
+
+Estado: Cada objeto tiene un estado definido por los valores de sus atributos en un momento dado. Por ejemplo, un objeto de la clase Car (automóvil) podría tener atributos como marca, modelo, color, velocidad, etc., que definen su estado en un momento específico.
+
+Comportamiento: Los objetos pueden realizar acciones o responder a mensajes enviados a través de sus métodos. Estos métodos representan las operaciones que un objeto puede realizar. Por ejemplo, un objeto de la clase Car podría tener métodos como acelerar, frenar, girar, etc., que definen su comportamiento.
+
+Identidad única: Cada objeto tiene una identidad única que lo distingue de otros objetos. Dos objetos pueden tener el mismo estado, pero aún así ser diferentes debido a su identidad única.
+
+Encapsulación: Los objetos encapsulan tanto sus datos (atributos) como su comportamiento (métodos) en una sola entidad. Esto significa que los detalles internos de un objeto están ocultos y solo se puede interactuar con él a través de su interfaz pública (los métodos proporcionados por su clase).
+
+Instanciación: La creación de un objeto a partir de una clase se llama instanciación. Cuando se instancia una clase, se reserva memoria para el objeto y se inicializan sus atributos. Cada instancia es un objeto separado e independiente con su propio conjunto de valores de atributos.
+
+
+
+
 2. ¿Con qué dificultades me encontré y cómo las abordé?
+
+
+Este ejercicio de investigacion y definicion de conceptos lo aborde con chatgpt
+
+
 3. ¿Estoy más cerca de alcanzar el objetivo de la sesión? ¿Qué falta por hacer?
-4. ¿Qué he aprendido o reforzado en esta micro-sesión? 
+
+
+Si estoy mas, debo seguir con el trabajo de investigacion
+
+
+4. ¿Qué he aprendido o reforzado en esta micro-sesión?
+
+Reforce la definicion de clases y objetos
+
+
 
 #### Micro-sesión 4. (25 minutos)
 
@@ -181,16 +399,141 @@ En esta micro sesion reforce los conocimientos de los conceptos claves de esta u
 **Meta-aprendizaje:**
 
 1. ¿Qué he logrado en esta micro-sesión de trabajo?
+
+En esta micro sesion logre trabajar en el ejercicio 3 a partir del ejemplo que ya habia dado el profesor en el documento de la unidad 3 
+
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+
+// Declaración de la estructura Forma
+typedef struct {
+    int16_t x;
+    int16_t y;
+} Forma;
+
+// Constructor de Forma
+void Forma_ctor(Forma * const yo, int16_t x, int16_t y) {
+    yo->x = x;
+    yo->y = y;
+}
+
+// Destructor de Forma (no hace nada en este caso)
+void Forma_dtor(Forma * const yo) {
+    // No hay nada que liberar en este caso
+}
+
+// Funciones para acceder a los atributos de Forma
+int16_t Forma_obtenerX(Forma const * const yo) {
+    return yo->x;
+}
+
+int16_t Forma_obtenerY(Forma const * const yo) {
+    return yo->y;
+}
+
+// Declaración de la estructura Rectangulo que tiene una relación con Forma
+typedef struct {
+    Forma base; // Rectangulo se basa en Forma
+    int16_t ancho;
+    int16_t alto;
+} Rectangulo;
+
+// Constructor de Rectangulo
+void Rectangulo_ctor(Rectangulo * const yo, int16_t x, int16_t y, int16_t ancho, int16_t alto) {
+    Forma_ctor((Forma *)yo, x, y); // Llamar al constructor de Forma
+    yo->ancho = ancho;
+    yo->alto = alto;
+}
+
+// Destructor de Rectangulo (no hace nada en este caso)
+void Rectangulo_dtor(Rectangulo * const yo) {
+    Forma_dtor((Forma *)yo); // Llamar al destructor de Forma
+}
+
+// Funciones para acceder a los atributos de Rectangulo
+int16_t Rectangulo_obtenerAncho(Rectangulo const * const yo) {
+    return yo->ancho;
+}
+
+int16_t Rectangulo_obtenerAlto(Rectangulo const * const yo) {
+    return yo->alto;
+}
+
+int main() {
+    // Crear un objeto Rectangulo
+    Rectangulo mi_rectangulo;
+    Rectangulo_ctor(&mi_rectangulo, 10, 20, 30, 40);
+
+    // Acceder a los atributos de Forma a través de Rectangulo
+    printf("Coordenadas del rectángulo: (%d, %d)\n", Forma_obtenerX((Forma *)&mi_rectangulo), Forma_obtenerY((Forma *)&mi_rectangulo));
+    printf("Ancho del rectángulo: %d\n", Rectangulo_obtenerAncho(&mi_rectangulo));
+    printf("Altura del rectángulo: %d\n", Rectangulo_obtenerAlto(&mi_rectangulo));
+
+    // Liberar recursos cuando ya no se necesiten
+    Rectangulo_dtor(&mi_rectangulo);
+
+    return 0;
+}
+
+```
+
+En este programa, la clase Rectangulo tiene una relación con la clase Shape. El objeto mi_rectangulo es un objeto Rectangulo que también hereda las propiedades de la clase Shape. Esto se logra mediante la inclusión de un miembro Shape en la definición de Rectangle. De esta manera, Rectangle puede acceder a los atributos x e y de Shape y también tiene sus propios atributos width y height.
+
+
+
+
+
 2. ¿Con qué dificultades me encontré y cómo las abordé?
+
+
+la mayor dificultad fue llevar a la practica la teoria ya vista
+
+
+
 3. ¿Estoy más cerca de alcanzar el objetivo de la sesión? ¿Qué falta por hacer?
+
+Si estoy mas cerca, debo seguir con los ejercicios de investigacion
+
+
+
 4. ¿Qué he aprendido o reforzado en esta micro-sesión?
+
+
+Reforce la sintaxis para acceder a las clases
+
+
 
 **Cierre de sesión:**
 
 5. ¿He alcanzado los objetivos planteados al inicio? Si no, ¿por qué y qué puedo mejorar?
+
+
+Si, logro realizar las 3 actividades que planee a inicio de la sesion
+
+
+
 6. ¿Cuáles fueron los desafíos más significativos de hoy y cómo los superé?
+
+
+Los desafios que tuve en esta sesion los pude afrontar con mas investigacion y chatgpt
+
+
+
 7. Basado en el trabajo de hoy, ¿qué insights importantes he ganado?
+
+
+Reforzar conceptos y la sintaxis de C
+
+
+
+
 8. ¿Cuáles son los pasos siguientes para continuar avanzando en el proyecto?
+
+Seguir con las actividades de investigacion
+
+
 
 ### Sesión 3
 
@@ -199,16 +542,51 @@ En esta micro sesion reforce los conocimientos de los conceptos claves de esta u
 **Planeación:**
 
 1. ¿Qué voy a trabajar hoy?
+
+En esta sesion autonoma seguire trabajando en la investigacion por lo que tengo planeado trabajar en el ejercicio 5 y 6. 
+
+
+
 2. ¿Cuál es mi objetivo principal para esta sesión?
+
+Mi objetivo es analizar, investigar y aprender nuevos conceptos. 
+
+
+
 
 **Trabajo en concentración**
 
 **Meta-aprendizaje:**
 
 3. ¿Qué he logrado en esta micro-sesión de trabajo?
+
+En esta micro sesion planee lo que trabajare en esta sesion y el titulo del ejercicio es el concepto de contructor por lo que empece buscando la definicion que es la siguiente 
+
+En la programación orientada a objetos, un constructor es un método especial que se utiliza para inicializar un objeto recién creado y asignarle valores iniciales a sus variables de instancia.
+
+En otras palabras, un constructor es una función que se ejecuta automáticamente cuando se crea un objeto de una clase específica.
+
+esto lo saque del siguiente link:
+
+https://blog.hubspot.es/website/que-es-constructor-java#:~:text=En%20la%20programaci%C3%B3n%20orientada%20a,a%20sus%20variables%20de%20instancia.
+
+
+
 4. ¿Con qué dificultades me encontré y cómo las abordé?
+
+Realmente no tuve ninguna dificultad
+
+
 5. ¿Estoy más cerca de alcanzar el objetivo de la sesión? ¿Qué falta por hacer?
-6. ¿Qué he aprendido o reforzado en esta micro-sesión? 
+
+Si estoy mas, me falta seguir haciendo el ejerccio 5 
+
+
+6. ¿Qué he aprendido o reforzado en esta micro-sesión?
+
+Reforce el concepto de constructor.
+
+
 
 #### Micro-sesión 2 (25 minutos)
 
@@ -217,9 +595,37 @@ En esta micro sesion reforce los conocimientos de los conceptos claves de esta u
 **Meta-aprendizaje:**
 
 1. ¿Qué he logrado en esta micro-sesión de trabajo?
+
+
+En esta micro sesion respondi la primera pregunta del ejercicio que es la siguiente:
+
+¿En los ejercicios anteriores puedes identificar al constructor de la clase?
+
+en los ejercicios anteriores, el constructor de la clase se puede identificar por las funciones que inicializan los objetos de la clase. En los códigos proporcionados, las funciones que cumplen esta función son las que tienen como objetivo inicializar los objetos de las estructuras. 
+
+En los ejercicios que he hecho el constructor ha sido Shape que es la función Shape_ctor, esta funcione se encargan de inicializar las instancias de las estructuras con los valores adecuados para sus miembros, lo que equivale a lo que hace un constructor en la programación orientada a objetos.
+
+
+
 2. ¿Con qué dificultades me encontré y cómo las abordé?
+
+Identificar de primeras el constructor en los ejercicios pero teniendo ya el concepto fue mas facil 
+
+
+
 3. ¿Estoy más cerca de alcanzar el objetivo de la sesión? ¿Qué falta por hacer?
-4. ¿Qué he aprendido o reforzado en esta micro-sesión? 
+
+
+Si, me falta responder la 2da pregunta del ejercicio 5 
+
+
+
+
+4. ¿Qué he aprendido o reforzado en esta micro-sesión?
+
+Reforce la funcion del constructor de una forma mas practica
+
+
 
 #### Micro-sesión 3 (25 minutos)
 
@@ -228,9 +634,32 @@ En esta micro sesion reforce los conocimientos de los conceptos claves de esta u
 **Meta-aprendizaje:**
 
 1. ¿Qué he logrado en esta micro-sesión de trabajo?
+
+
+En esta micro sesion trabaje en la 2da pregunta del ejercicio 5 que es:
+
+Considerando lo que vienes analizando, define entonces qué es el constructor de una clase y para qué sirve.
+
+
+
+
+
 2. ¿Con qué dificultades me encontré y cómo las abordé?
+
+
+
+
+
 3. ¿Estoy más cerca de alcanzar el objetivo de la sesión? ¿Qué falta por hacer?
-4. ¿Qué he aprendido o reforzado en esta micro-sesión? 
+
+
+
+
+
+4. ¿Qué he aprendido o reforzado en esta micro-sesión?
+
+
+
 
 #### Micro-sesión 4. (25 minutos)
 
