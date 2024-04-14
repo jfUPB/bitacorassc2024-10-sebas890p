@@ -641,24 +641,41 @@ En esta micro sesion trabaje en la 2da pregunta del ejercicio 5 que es:
 Considerando lo que vienes analizando, define entonces qué es el constructor de una clase y para qué sirve.
 
 
+El constructor de una clase es una función especial que se encarga de inicializar los objetos de esa clase. Su objetivo principal es asegurar que los objetos sean creados con un estado inicial válido y consistente.
 
+
+
+
+algunos puntos importantes sobre los constructores de clase:
+
+Inicialización de objetos: El constructor se utiliza para asignar valores iniciales a los atributos de un objeto cuando se crea una instancia de la clase.
+
+Garantizar consistencia: El constructor asegura que los objetos sean creados en un estado válido y coherente, lo que ayuda a prevenir errores durante la ejecución del programa.
+
+Configuración de recursos: En algunos casos, el constructor puede encargarse de configurar recursos necesarios para el funcionamiento del objeto, como la asignación de memoria dinámica o la apertura de archivos.
+
+Nombre especial: En muchos lenguajes de programación orientados a objetos, como C++, Java y Python, los constructores tienen el mismo nombre que la clase y no tienen tipo de retorno explícito.
+
+Llamado automático: En la mayoría de los casos, el constructor se invoca automáticamente cuando se crea un objeto de la clase, lo que garantiza que el objeto esté listo para su uso inmediato.
 
 
 2. ¿Con qué dificultades me encontré y cómo las abordé?
 
 
-
+Realmente no tuve dificultades
 
 
 3. ¿Estoy más cerca de alcanzar el objetivo de la sesión? ¿Qué falta por hacer?
 
+
+Si estoy mas cerca, me falta trabajar en el ejercicio 6
 
 
 
 
 4. ¿Qué he aprendido o reforzado en esta micro-sesión?
 
-
+Reforce el funcionamiento del constructor
 
 
 #### Micro-sesión 4. (25 minutos)
@@ -668,16 +685,84 @@ Considerando lo que vienes analizando, define entonces qué es el constructor de
 **Meta-aprendizaje:**
 
 1. ¿Qué he logrado en esta micro-sesión de trabajo?
+
+
+En esta micro sesion logre realizar el ejercicio 6 
+
+En el ejemplo de encapsulamiento:
+
+¿Cuál es el estado y el comportamiento?
+
+
+
+en el ejemplo de encapsulamiento, consideremos una clase Shape que representa una forma geométrica básica. Esta clase tiene dos atributos de estado: las coordenadas x e y que representan la posición de la forma en un plano. Además, tiene algunas operaciones o métodos que definen su comportamiento, como mover la forma (moveBy) y obtener las coordenadas x e y (getX y getY).
+
+la relación entre el estado y el comportamiento en este ejemplo:
+
+Estado:
+
+Coordenada X: Representa la posición horizontal de la forma.
+Coordenada Y: Representa la posición vertical de la forma.
+
+
+Comportamiento:
+
+moveBy(dx, dy): Permite mover la forma en el plano por una cantidad específica en las direcciones horizontal y vertical.
+getX(): Devuelve la coordenada X actual de la forma.
+getY(): Devuelve la coordenada Y actual de la forma.
+
+
 2. ¿Con qué dificultades me encontré y cómo las abordé?
+
+
+No tuve dificultades
+
+
+
 3. ¿Estoy más cerca de alcanzar el objetivo de la sesión? ¿Qué falta por hacer?
+
+
+Si estoy mas cerca
+
+
+
+
 4. ¿Qué he aprendido o reforzado en esta micro-sesión?
+
+
+Como se representa los estados y comportamientos
+
+
+
 
 **Cierre de sesión:**
 
 5. ¿He alcanzado los objetivos planteados al inicio? Si no, ¿por qué y qué puedo mejorar?
+
+
+Si, pude completar los ejercicios 5 y 6
+
+
+
 6. ¿Cuáles fueron los desafíos más significativos de hoy y cómo los superé?
+
+
+Realmente en esta sesion no tuve desafios grandes los que tuve los coloque en cada micro sesion
+
+
+
 7. Basado en el trabajo de hoy, ¿qué insights importantes he ganado?
+
+
+Gane saber la funcion y la representacion de los constructores
+
+
+
 8. ¿Cuáles son los pasos siguientes para continuar avanzando en el proyecto?
+
+Debo seguir avanzando con la investigacion
+
+
 
 
 ## Semana 11
@@ -686,25 +771,109 @@ Considerando lo que vienes analizando, define entonces qué es el constructor de
 
 1. ¿Cuál será el propósito de la sesión de hoy?
 
-> Escribe aquí
+El proposito de esta sesion es realizar el ejercicio 7  que es :
+
+Ahora te pediré que implementes el ejemplo de encapsulamiento (el que está en C) en C#.
+
+
+```C#
+using System;
+
+// Definición de la clase Shape
+public class Shape
+{
+    // Atributos privados para encapsular el estado
+    private int x;
+    private int y;
+
+    // Constructor de la clase Shape
+    public Shape(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+
+    // Método para mover la forma
+    public void MoveBy(int dx, int dy)
+    {
+        x += dx;
+        y += dy;
+    }
+
+    // Métodos para obtener las coordenadas x e y
+    public int GetX()
+    {
+        return x;
+    }
+
+    public int GetY()
+    {
+        return y;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Crear un objeto de la clase Shape
+        Shape miForma = new Shape(10, 20);
+
+        // Mostrar las coordenadas iniciales
+        Console.WriteLine("Coordenadas iniciales:");
+        Console.WriteLine("X: " + miForma.GetX());
+        Console.WriteLine("Y: " + miForma.GetY());
+
+        // Mover la forma y mostrar las nuevas coordenadas
+        miForma.MoveBy(5, 5);
+        Console.WriteLine("\nCoordenadas después de mover:");
+        Console.WriteLine("X: " + miForma.GetX());
+        Console.WriteLine("Y: " + miForma.GetY());
+    }
+}
+```
+
+Las principales diferencias entre C# y C son las siguientes:
+
+Sintaxis: La sintaxis en C# es bastante diferente de la de C. Por ejemplo, en C# usamos class para definir una clase en lugar de struct o typedef struct en C. Además, en C# usamos public y private para especificar la visibilidad de miembros de clase en lugar de trabajar con punteros como en C.
+
+Gestión de memoria: En C, la gestión de memoria es manual y debemos ocuparnos explícitamente de la asignación y liberación de memoria. En C#, el recolector de basura se encarga de liberar la memoria no utilizada automáticamente, lo que simplifica la gestión de la memoria para el desarrollador.
+
+rientación a objetos: C# es un lenguaje de programación orientado a objetos puro, mientras que C es un lenguaje procedural con capacidades limitadas de orientación a objetos. En C#, las clases y objetos son conceptos fundamentales y todo está diseñado alrededor de la programación orientada a objetos.
+
+Características adicionales: C# tiene muchas características adicionales que no están presentes en C, como la herencia, la polimorfismo, los eventos, las propiedades, entre otras. Estas características hacen que el desarrollo en C# sea más fácil y flexible en comparación con C.
+
+mientras que el código en C y C# puede lograr resultados similares, difieren en la sintaxis, la gestión de memoria, las capacidades de orientación a objetos y las características adicionales del lenguaje. C# proporciona un entorno más robusto y orientado a objetos, mientras que C ofrece un control más directo sobre la gestión de memoria y un estilo de programación más procedural.
+
+
+
+
+
  
 2. ¿Cuáles fueron los desafíos más significativos de la sesión y cómo los superé?
+
+
+En esta sesion lo mas desafiante claramente era pasar el codigo a c# pero no fue tan dificil ya que venimos manejando c# hace tiempo y tambien me apoye de chat gpt
+
 
 > Escribe aquí
 
 3. Basado en el trabajo de la sesión, ¿Qué aprendí o qué conclusión saco o cuál es la síntesis?
 
-> Escribe aquí
+de esta sesion conclui que si bien en c# claramente es mucho mas facil por su automatizacion por decirlo de una forma, tambien es necesario tener claro el lenguaje C ya que nos ayuda a comprender mejor los sistemas computacionales.
+
 
 4. ¿Cuáles son los pasos siguientes para continuar avanzando en el proyecto?
 
-> Escribe aquí
+Para continuar avanzando debo seguir con las investigacion hasta finalizarla por completo
+
+
 
 ### Sesión 2
 
 1. ¿Cuál será el propósito de la sesión de hoy?
 
-> Escribe aquí
+El proposito de esta sesion es realizar la actividad 8
  
 2. ¿Cuáles fueron los desafíos más significativos de la sesión y cómo los superé?
 
