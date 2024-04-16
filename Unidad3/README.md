@@ -873,19 +873,27 @@ Para continuar avanzando debo seguir con las investigacion hasta finalizarla por
 
 1. ¿Cuál será el propósito de la sesión de hoy?
 
-El proposito de esta sesion es realizar la actividad 8
+El proposito de esta sesion es realizar la actividad 8 la cual es hacer el diagrama de clases que es el siguiente
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/ab06c5c9-0d92-4652-ad45-ea507feb7411)
+
+En este diagrama:
+
+Shape es la clase que representa una forma geométrica básica, con sus atributos privados x e y y métodos públicos para mover la forma y obtener las coordenadas.
+Program es la clase que contiene el método Main, que es el punto de entrada del programa.
+
  
 2. ¿Cuáles fueron los desafíos más significativos de la sesión y cómo los superé?
 
-> Escribe aquí
+El desafio que realmente no lo senti asi fue hacer el diagrama de clases ya que las clases estaban en el codigo
 
 3. Basado en el trabajo de la sesión, ¿Qué aprendí o qué conclusión saco o cuál es la síntesis?
 
-> Escribe aquí
+Realmente de esta sesion no saque algun conclusion ya que solo fue hacer el diagrama de clases
 
 4. ¿Cuáles son los pasos siguientes para continuar avanzando en el proyecto?
 
-> Escribe aquí
+Terminar de completar las actividades que me hacen falta.
 
 ### Sesión 3
 
