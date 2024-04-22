@@ -899,19 +899,53 @@ Terminar de completar las actividades que me hacen falta.
 
 1. ¿Cuál será el propósito de la sesión de hoy?
 
-> Escribe aquí
+El proposito de esta sesion autonoma fue trabajar en el ejercicio 9 que se trata del concepto de herencia por lo tanto respondi las 5 preguntas que se encuentran en este ejercicio :
+
+¿Cómo se vería en memoria un objeto de la clase Shape?
+
+La clase shape contiene dos campos de tipo int16_t para representar las coordenadas x y y para entender como se veria en memoria un objeto de esta clase se necesita tener en cuenta el tamaño de bytes asumiendo que ocupa 2 bytes de memoria shape contendría dos campos int16_t, uno para x y otro para y. Suponiendo que la alineación de la estructura es la predeterminada , el objeto Shape ocuparía en total 4 bytes en memoria (2 bytes para x + 2 bytes para y).
+
+¿Cómo se vería en memoria un objeto de la clase Rectangle?
+
+Dado que Rectangle es una estructura que contiene una instancia de Shape como primer campo y luego agrega dos campos más (width y height), la disposición en memoria sería consecutiva, primero los campos de Shape y luego los campos específicos de Rectangle.
+
+Suponiendo que un int16_t ocupa 2 bytes en memoria y que la alineación de la estructura es la predeterminada, la disposición en memoria de un objeto Rectangle sería la siguiente:
+
+
+Los primeros dos bytes (Byte 0 y Byte 1) corresponden al campo x de Shape.
+Los siguientes dos bytes (Byte 2 y Byte 3) corresponden al campo y de Shape.
+Los siguientes dos bytes (Byte 4 y Byte 5) corresponden al campo width de Rectangle.
+Los últimos dos bytes (Byte 6 y Byte 7) corresponden al campo height de Rectangle.
+
+
+
+¿Qué relación ves entre los dos objetos en términos de cómo se ven en memoria?
+
+
+La relación entre los objetos de las clases Shape y Rectangle en términos de cómo se ven en memoria es que un objeto de la clase Rectangle incluye internamente un objeto de la clase Shape como su primer campo.
+
+Esto se debe a que la estructura Rectangle contiene una instancia de Shape como su primer campo. Por lo tanto, cuando se crea un objeto de la clase Rectangle, el espacio de memoria para el objeto Shape también se reserva dentro de la memoria asignada para el objeto Rectangle. Esto significa que los campos x y y de Shape forman parte del objeto Rectangle en la memoria, seguidos por los campos adicionales específicos de Rectangle (width y height).
+
+
+Cuando decimos que un Rectangle también es un Shape ¿Tiene sentido?
+
+un Rectangle puede ser considerado un tipo de Shape debido a que hereda todas las características y comportamientos de la clase base Shape
+
+En la mayoría de los casos, esta afirmación tiene sentido. Sin embargo, hay que tener en cuenta que no siempre es estrictamente cierto en todos los aspectos. Por ejemplo, un Rectangle tiene propiedades y comportamientos adicionales (ancho y alto) que no están presentes en todas las formas geométricas representadas por Shape. Esto significa que aunque un Rectangle comparte las propiedades de posición (x e y) con un Shape, también tiene características únicas que lo distinguen de otras formas.
+
+
  
 2. ¿Cuáles fueron los desafíos más significativos de la sesión y cómo los superé?
 
-> Escribe aquí
+Realmente no tuve algun desafio dificil ya que lo que no entendia le pedia la explicacion a chat gpt
 
 3. Basado en el trabajo de la sesión, ¿Qué aprendí o qué conclusión saco o cuál es la síntesis?
 
-> Escribe aquí
+De esta sesion saco de conclusion que las clases que heredan de otras siempre contienen la informacion que heredan en la memoria 
 
 4. ¿Cuáles son los pasos siguientes para continuar avanzando en el proyecto?
 
-> Escribe aquí
+seguir investigando y finalizar los ejercicios propuestos 
 
 
 ## Semana 12
