@@ -954,37 +954,95 @@ seguir investigando y finalizar los ejercicios propuestos
 
 1. ¿Cuál será el propósito de la sesión de hoy?
 
-> Escribe aquí
+El proposito de esta sesion es realizar el ejercicio 10 del documento guia que se trata de realizar el codigo anterior en c# y hacer una comparacion, el codigo en c# quedaria asi:
+
+```C#
+/*****************************************************
+* Class Shape
+******************************************************/
+public class Shape
+{
+    public short x;
+    public short y;
+}
+
+/*****************************************************
+* Class Rectangle
+******************************************************/
+public class Rectangle : Shape
+{
+    public ushort width;
+    public ushort height;
+}
+```
+
+En C#, la estructura struct se traduce directamente a una clase. Los miembros x y y de Shape se traducen como campos públicos en la clase Shape. La clase Rectangle hereda de Shape, lo que se traduce utilizando la herencia de clases en C#. Los tipos int16_t y uint16_t se traducen a short y ushort respectivamente en C# porque el estándar C# no proporciona tipos específicos como int16_t o uint16_t, sino que utiliza short y ushort para representar valores de 16 bits con signo y sin signo respectivamente. Esto simplifica la interoperabilidad entre diferentes plataformas y hace que el código sea más portable y fácil de entender.
+
+
+
+
+
+
+
  
 2. ¿Cuáles fueron los desafíos más significativos de la sesión y cómo los superé?
 
-> Escribe aquí
+
+No tuve desafios significativos ya que todo fue investigacion
+
+
 
 3. Basado en el trabajo de la sesión, ¿Qué aprendí o qué conclusión saco o cuál es la síntesis?
 
-> Escribe aquí
+
+De esra sesion aprendi con la comparacion entre C y C# que si bien tienen una logica muy similar tienen diferencias en los datos, en C se usa int16_t y uint16_t, mientras que en C# se usan short y ushort, otra diferencia es que en C# se utilizan palabras clave como public y private para especificar la visibilidad de los miembros de una clase, mientras que en C se utilizan los modificadores public, private, protected, entre otros.
+
+
 
 4. ¿Cuáles son los pasos siguientes para continuar avanzando en el proyecto?
 
-> Escribe aquí
+Seguir realizando los ejercicios 
+
 
 ### Sesión 2
 
 1. ¿Cuál será el propósito de la sesión de hoy?
 
-> Escribe aquí
+El proposito de esta sesion sera realizar el ejercicio 11 que se trata de hacer el diagrama de clases del ejercicio anterior, el diagrama de clases seria:
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/91b31757-95dd-4c97-a690-46c5afe66043)
+
+
+En este diagrama:
+
+Shape es la clase base que tiene dos campos x y y.
+Rectangle es la clase derivada de Shape, que hereda los campos x y y y añade dos campos adicionales width y height.
+La flecha indica la relación de herencia, donde Rectangle hereda de Shape.
+
+
  
 2. ¿Cuáles fueron los desafíos más significativos de la sesión y cómo los superé?
 
-> Escribe aquí
+
+desde la parte de dificultad no tuve ningun desafio ya que se trataba de un diagrama de clase de tan solo 2 clases 
+
+
+
 
 3. Basado en el trabajo de la sesión, ¿Qué aprendí o qué conclusión saco o cuál es la síntesis?
 
-> Escribe aquí
+
+En esta sesion reforce el diagrama de clase de herencia 
+
+
+
 
 4. ¿Cuáles son los pasos siguientes para continuar avanzando en el proyecto?
 
-> Escribe aquí
+
+Los pasos a seguir son terminar los ejercicios que me faltan lo cual tratare de hacerlo en la sesion 3 para ya en la semana 13 dedicarme al refactoring 
+
+
 
 ### Sesión 3
 
