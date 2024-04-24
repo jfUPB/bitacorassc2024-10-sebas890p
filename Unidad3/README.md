@@ -1048,7 +1048,63 @@ Los pasos a seguir son terminar los ejercicios que me faltan lo cual tratare de 
 
 1. ¿Cuál será el propósito de la sesión de hoy?
 
-> Escribe aquí
+En esta sesion autonoma me propuse a realizar el ejercicio 12 que se trtata de polimorfismo, por lo que empece leyendo el concepto proporcionado por el profesor en el documento pero este no me quedo del todo claro por lo que le pedi a chatgpt que realizara un ejemplo a partir de ese concepto y me dio el siguiente:
+
+```c#
+#include <stdio.h>
+
+// Definición de la estructura Animal
+typedef struct {
+    void (*hacerSonido)();
+} Animal;
+
+// Función para que un Perro haga sonido
+void perroHacerSonido() {
+    printf("¡Guau! (sonido de perro)\n");
+}
+
+// Función para que un Gato haga sonido
+void gatoHacerSonido() {
+    printf("¡Miau! (sonido de gato)\n");
+}
+
+// Función para que una Vaca haga sonido
+void vacaHacerSonido() {
+    printf("¡Muu! (sonido de vaca)\n");
+}
+
+// Función que hace que cualquier animal haga sonido
+void hacerRuidoDeAnimal(Animal *animal) {
+    // Llama al puntero a función para hacer sonido del animal
+    animal->hacerSonido();
+}
+
+int main() {
+    // Definir instancias de diferentes animales
+    Animal perro = {perroHacerSonido};
+    Animal gato = {gatoHacerSonido};
+    Animal vaca = {vacaHacerSonido};
+
+    // Llamar a la función hacerRuidoDeAnimal con diferentes animales
+    hacerRuidoDeAnimal(&perro); // Salida: ¡Guau! (sonido de perro)
+    hacerRuidoDeAnimal(&gato);  // Salida: ¡Miau! (sonido de gato)
+    hacerRuidoDeAnimal(&vaca);  // Salida: ¡Muu! (sonido de vaca)
+
+    return 0;
+}
+```
+
+
+En este código, esta definida una estructura Animal que contiene un puntero a una función hacerSonido(). Luego, se definen funciones para hacer sonidos específicos para diferentes tipos de animales (perroHacerSonido(), gatoHacerSonido(), vacaHacerSonido()). Finalmente, tenemos una función hacerRuidoDeAnimal() que acepta un puntero a una estructura Animal y llama a la función correspondiente para hacer sonido, a partir de este ejemplo entendi mejor el concepto 
+
+
+
+
+
+
+
+
+
  
 2. ¿Cuáles fueron los desafíos más significativos de la sesión y cómo los superé?
 
