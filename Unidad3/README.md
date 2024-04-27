@@ -1108,15 +1108,22 @@ En este código, esta definida una estructura Animal que contiene un puntero a u
  
 2. ¿Cuáles fueron los desafíos más significativos de la sesión y cómo los superé?
 
-> Escribe aquí
+
+Realmento no tuve un desafio significativo ya que esta sesion se trato sobre repasar el concepto de polimorfismo 
+
+
 
 3. Basado en el trabajo de la sesión, ¿Qué aprendí o qué conclusión saco o cuál es la síntesis?
 
-> Escribe aquí
+
+En esta sesion saque como conclusion que apartir del polimorfismo se puede hacer en el refactoring que desde un primer puntero llamado powerup se puedan desglosar disntintos powerups
+
+
 
 4. ¿Cuáles son los pasos siguientes para continuar avanzando en el proyecto?
 
-> Escribe aquí
+Los pasoa a seguir es ver si necesito hacer otro ejercicio para reforzar los conocimientos y si no es asi utilizar la siguiente semana para aplicar.
+
 
 ## Semana 13
 
