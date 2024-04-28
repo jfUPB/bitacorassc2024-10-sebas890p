@@ -32,16 +32,11 @@ typedef struct {
     float x;
     float y;
     float vel_x;
-    void (*move)(struct Paddle *paddle, float delta_time);
 } Paddle;
 
-void move_paddle(Paddle *paddle, float delta_time) {
+void move_paddle(Paddle* paddle, float delta_time) {
     paddle->x += paddle->vel_x * delta_time;
     paddle->x = paddle->x < 0 ? 0 : (paddle->x > WINDOW_WIDTH - PADDLE_WIDTH ? WINDOW_WIDTH - PADDLE_WIDTH : paddle->x);
-}
-
-void move_opponent_paddle(Paddle *paddle, float delta_time) {
-    // Add opponent paddle movement logic here
 }
 
 int initialize_window(void) {
@@ -118,20 +113,41 @@ void setup(Ball* ball, Paddle* player_paddle, Paddle* opponent_paddle) {
     ball->vel_y = BALL_SPEED;
     player_paddle->x = WINDOW_WIDTH / 2 - PADDLE_WIDTH / 2;
     player_paddle->y = WINDOW_HEIGHT - 40;
-    player_paddle->move = move_paddle;
     opponent_paddle->x = WINDOW_WIDTH / 2 - PADDLE_WIDTH / 2;
     opponent_paddle->y = 20;
-    opponent_paddle->move = move_opponent_paddle;
 }
 
 void update(Ball* ball, Paddle* player_paddle, Paddle* opponent_paddle, float delta_time) {
     ball->x += ball->vel_x * delta_time;
     ball->y += ball->vel_y * delta_time;
 
-    player_paddle->move(player_paddle, delta_time);
-    opponent_paddle->move(opponent_paddle, delta_time);
+    move_paddle(player_paddle, delta_time);
+    move_paddle(opponent_paddle, delta_time);
 
-    // Collision detection and other game logic
+    if (ball->x <= 0 || ball->x + BALL_SIZE >= WINDOW_WIDTH) {
+        ball->vel_x = -ball->vel_x;
+    }
+
+    if ((ball->y <= player_paddle->y + PADDLE_HEIGHT && ball->y + BALL_SIZE >= player_paddle->y) || 
+        (ball->y + BALL_SIZE >= opponent_paddle->y && ball->y <= opponent_paddle->y + PADDLE_HEIGHT)) {
+        if (ball->x + BALL_SIZE >= player_paddle->x && ball->x <= player_paddle->x + PADDLE_WIDTH) {
+            ball->vel_y = -ball->vel_y;
+        } else if (ball->x + BALL_SIZE >= opponent_paddle->x && ball->x <= opponent_paddle->x + PADDLE_WIDTH) {
+            ball->vel_y = -ball->vel_y;
+        }
+    }
+
+    if (ball->y <= 0) {
+        player_score++;
+        ball->x = WINDOW_WIDTH / 2 - BALL_SIZE / 2;
+        ball->y = WINDOW_HEIGHT / 2 - BALL_SIZE / 2;
+        ball->vel_y = BALL_SPEED;
+    } else if (ball->y + BALL_SIZE >= WINDOW_HEIGHT) {
+        opponent_score++;
+        ball->x = WINDOW_WIDTH / 2 - BALL_SIZE / 2;
+        ball->y = WINDOW_HEIGHT / 2 - BALL_SIZE / 2;
+        ball->vel_y = -BALL_SPEED;
+    }
 }
 
 void render(Ball* ball, Paddle* player_paddle, Paddle* opponent_paddle) {
@@ -187,4 +203,5 @@ int main(int argc, char* args[]) {
     destroy_window();
     return 0;
 }
+
 ```
