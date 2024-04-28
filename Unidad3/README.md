@@ -2,7 +2,7 @@
 
 ## ¿Cómo voy?
 
-- [ ] Terminé la fase de investigación. 
+- [x] Terminé la fase de investigación. 
 - [ ] Terminé la fase de aplicación.
 - [ ] Terminé la fase de compartir.
 
@@ -1131,19 +1131,86 @@ Los pasoa a seguir es ver si necesito hacer otro ejercicio para reforzar los con
 
 1. ¿Cuál será el propósito de la sesión de hoy?
 
-> Escribe aquí
+El proposito de la sesion de hoy sera realizar el ejercicio 15 que me parece que es importante de hacerlo antes de empezar a aplicar el refactoring por lo tanto empezando con el ejercicio 15 sobre interfaces hice lo siguiente:
+
+En C, el concepto de interfaz no está directamente soportado como en lenguajes orientados a objetos como C# Sin embargo, podemos simular el concepto de interfaz utilizando punteros a funciones, un ejemplo seria:
+
+
+```C
+#include <stdio.h>
+
+// Definición de la interfaz Animal
+typedef struct {
+    void (*hacerSonido)();
+} AnimalInterface;
+
+// Definición de la estructura Animal
+typedef struct {
+    AnimalInterface *vtable; // Puntero a la tabla de métodos
+} Animal;
+
+// Implementación de la función "hacerSonido" para el gato
+void gato_hacerSonido() {
+    printf("Miau\n");
+}
+
+// Implementación de la función "hacerSonido" para el perro
+void perro_hacerSonido() {
+    printf("Guau\n");
+}
+
+int main() {
+    // Crear un gato
+    AnimalInterface gato_interface = {gato_hacerSonido};
+    Animal gato = {&gato_interface};
+
+    // Crear un perro
+    AnimalInterface perro_interface = {perro_hacerSonido};
+    Animal perro = {&perro_interface};
+
+    // Hacer que los animales hagan sonidos
+    printf("El gato hace: ");
+    gato.vtable->hacerSonido();
+
+    printf("El perro hace: ");
+    perro.vtable->hacerSonido();
+
+    return 0;
+}
+
+```
+
+En este ejemplo:
+
+Definimos una interfaz AnimalInterface, que contiene un puntero a una función hacerSonido
+Luego, definimos una estructura Animal, que contiene un puntero a AnimalInterface.
+Implementamos dos funciones: gato_hacerSonido y perro_hacerSonido, que son las acciones específicas que pueden realizar un gato y un perro, respectivamente.
+En la función main, creamos un gato y un perro, asignándoles punteros a las funciones hacerSonido correspondientes.
+Finalmente, invocamos la función hacerSonido para cada animal, lo que imprime el sonido característico de cada uno.
+
  
 2. ¿Cuáles fueron los desafíos más significativos de la sesión y cómo los superé?
 
-> Escribe aquí
+
+Yo creo que mas que un desafio estaba un poco confuso con las diferencias entre polimorfismo y interfaz ya que su sitaxis en C son muy similares mediante punteros pero lo supere con la siguiente explicacion:
+
+La diferencia fundamental entre el polimorfismo y el uso de una interfaz es que el polimorfismo permite que un objeto se comporte de manera diferente según su tipo en tiempo de ejecución, mientras que una interfaz define un contrato que una clase debe cumplir. En el ejemplo anterior, el polimorfismo se logra mediante el uso de diferentes implementaciones de la función hacerSonido, mientras que una interfaz definiría un conjunto común de métodos que todas las clases (en este caso, animales) deberían implementar.
+
+
 
 3. Basado en el trabajo de la sesión, ¿Qué aprendí o qué conclusión saco o cuál es la síntesis?
 
-> Escribe aquí
+Lo que aprendi en esta sesion o mas que todo reforce se trata sobre el desafio significativo que era la diferencia entre polimorfismo y interfaz 
+
+
+
 
 4. ¿Cuáles son los pasos siguientes para continuar avanzando en el proyecto?
 
-> Escribe aquí
+
+Los pasos que siguen para continuar es empezar con la aplicacion
+
+
 
 ### Sesión 2
 
