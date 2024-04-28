@@ -12,6 +12,52 @@
 ### Muestro y explico mi implementación del encapsulamiento.
 ### Muestro y explico mi implementación de la herencia.
 ### Muestro y explico mi implementación del polimorfismo.
+
+El polimorfismo se implementa a través de la utilización de punteros genéricos (void *) y funciones que operan de manera genérica sobre estos punteros, permitiendo así trabajar con diferentes tipos de datos de forma transparente para el resto del programa. Aquí te muestro en qué partes del código se implementa el polimorfismo:
+
+Definición de estructuras genéricas para el ball y paddle:Las estructuras Ball y Paddle son definidas de manera genérica sin detalles específicos de implementación. Esto permite que puedan ser utilizadas para representar tanto la pelota como las raquetas del jugador y del oponente.
+
+```c
+typedef struct {
+    float x;
+    float y;
+    float vel_x;
+    float vel_y;
+} Ball;
+
+typedef struct {
+    float x;
+    float y;
+    float vel_x;
+} Paddle;
+```
+
+
+
+Uso de punteros genéricos en las funciones:Las funciones process_input y move_paddle toman como parámetros punteros genéricos (void *) que pueden apuntar tanto a estructuras de tipo Ball como de tipo Paddle. Esto permite que estas funciones operen de manera polimórfica, es decir, puedan trabajar con diferentes tipos de datos sin conocer su tipo específico.
+
+```C
+void process_input(void *player_paddle, void *opponent_paddle) {
+    // Código para procesar la entrada del jugador y mover las raquetas
+}
+
+void move_paddle(void *paddle, float delta_time) {
+    // Código para mover la raqueta (tanto del jugador como del oponente)
+}
+```
+
+Llamadas a funciones polimórficas:Las funciones process_input y move_paddle son llamadas en el bucle principal del programa (main) pasando punteros a estructuras de tipo Paddle. Estas funciones operan sobre los paddles de manera genérica, sin necesidad de conocer su tipo específico.
+
+```C
+while (game_is_running) {
+    process_input(&player_paddle, &opponent_paddle);
+    move_paddle(&player_paddle, delta_time);
+    move_paddle(&opponent_paddle, delta_time);
+    // Otro código del bucle principal...
+}
+```
+
+
 ### Muestra cómo probaste la funcionalidad de cada característica de la aplicación,
 ### Muestra cómo probaste la integración de cada característica con las anteriores.
 
