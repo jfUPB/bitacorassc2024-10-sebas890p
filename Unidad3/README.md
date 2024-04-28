@@ -1216,7 +1216,7 @@ Los pasos que siguen para continuar es empezar con la aplicacion
 
 1. ¿Cuál será el propósito de la sesión de hoy?
 
-> Escribe aquí
+El proposito de esta sesion fue implementar el polimorfismo en el codigo de pong y crear la carpeta de codigo para asi mantenerlo bajo control de version, agregue el polimorfismo mediante punteros en la estructura de paddle, el cual lo explicare mejor en el apartado del compartir 
  
 2. ¿Cuáles fueron los desafíos más significativos de la sesión y cómo los superé?
 
