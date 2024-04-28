@@ -1220,15 +1220,16 @@ El proposito de esta sesion fue implementar el polimorfismo en el codigo de pong
  
 2. ¿Cuáles fueron los desafíos más significativos de la sesión y cómo los superé?
 
-> Escribe aquí
+El desafio mas significativo fue identificar que funciones encapsular para volverlas polimorficas y luego ver que sigan funcionando, ya que se me presento que luego de añadir el polimorfismo una raqueta no se movia, pero lo supere con la ayuda de chatgpt
 
 3. Basado en el trabajo de la sesión, ¿Qué aprendí o qué conclusión saco o cuál es la síntesis?
 
-> Escribe aquí
+En esta sesion no tengo conclusiones ya que se baso en aplicar 
+
 
 4. ¿Cuáles son los pasos siguientes para continuar avanzando en el proyecto?
 
-> Escribe aquí
+Los pasos a seguir para avanzar es implementar herencia y interfaz para asi completar el compartir 
 
 ### Sesión 3
 
