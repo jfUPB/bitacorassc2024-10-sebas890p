@@ -45,6 +45,10 @@ usando la siguiente plantilla:
 
 #### Sesión 1
 
+En esta sesion de comienzode unidad el profesor noesta haciendo una introduccion, nos hablo de que esta unidad se trata de manejar hilos de una forma sincronizada
+
+
+
 #### Sesión 2
 
 #### Sesión 3
