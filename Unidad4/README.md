@@ -121,6 +121,83 @@ El uso de las variables de stack y heap
 
 
 
+> 1. ¿Qué tipo de actividad estás evidenciando?
+
+Estoy evidenciando una actividad referente igual al ejercicio 2 esta vez sobre el concepto de los posibles estados de un proceso 
+
+
+
+> 2. Describe la actividad y cuál es el propósito de esta y/o la pregunta que quieres investigar.
+
+
+El proposito es aprender sobre el uso y su sintaxis de los estados en un programa, la idea de la actividad es simular un proceso que alterna entre dos estados: ejecución y bloqueado. Cuando el proceso está en ejecución, imprime un mensaje y luego espera un corto período de tiempo simulando la ejecución de alguna tarea. Después de eso, cambia al estado de bloqueado donde simula una operación de entrada y salida. Una vez que termina la operación , vuelve al estado de ejecución y continúa el ciclo. 
+
+
+
+> 3. Todas las actividades deben estar soportadas por código fuente. Vas a inidicar el commit que tiene
+>    el resultado final de la actividad.
+
+El codigo es el siguiente:
+
+
+```C
+#include <stdio.h>
+#include <unistd.h>
+
+void proceso_ejecucion() {
+    printf("Proceso en ejecucion...\n");
+    sleep(2); // Simula una ejecución por un tiempo
+}
+
+void proceso_bloqueado() {
+    printf("Proceso bloqueado esperando entrada/salida...\n");
+    sleep(1); // Simula una operación de E/S
+}
+
+int main() {
+    int estado = 0;
+
+    while (1) {
+        switch (estado) {
+            case 0:
+                proceso_ejecucion();
+                estado = 1;
+                break;
+            case 1:
+                proceso_bloqueado();
+                estado = 0;
+                break;
+            default:
+                printf("Estado no valido.\n");
+                return 1;
+        }
+    }
+
+    return 0;
+}
+```
+
+
+
+
+> 5. ¿Cuáles es el resultado de la actividad?
+
+
+El resultado del código será la impresión alternada de los mensajes que representan los dos estados del proceso ejecución y bloqueado
+
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/c9b2b328-3544-4f35-9a67-3151995d4b41)
+
+
+
+> 6. ¿Qué aprendiste de la actividad?
+
+
+aprendi que en C, los estados de un proceso no se pueden cambiar directamente dentro del programa, ya que los sistemas operativos son los encargados de administrar los estados de los procesos sin embargo podemos simular diferentes estados de un proceso utilizando funciones que representen diferentes acciones que un proceso puede realizar
+
+
+
+
 #### Sesión 2
 
 #### Sesión 3
