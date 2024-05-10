@@ -200,6 +200,162 @@ aprendi que en C, los estados de un proceso no se pueden cambiar directamente de
 
 #### Sesión 2
 
+> 1. ¿Qué tipo de actividad estás evidenciando?
+
+Estoy evidenciando la actividad 3 sobre concepto de hilos
+
+
+> 2. Describe la actividad y cuál es el propósito de esta y/o la pregunta que quieres investigar.
+
+
+El proposito de esta actividad es reforzar el concepto de hilos de forma practica con un programa que crea dos hilos que ejecutan la misma función funcion_hilo con mensajes diferentes como argumentos cada hilo imprime su mensaje en la consola de manera independiente, demostrando así la capacidad de ejecución concurrente de múltiples flujos de instrucciones utilizando hilos.
+
+
+
+> 3. Todas las actividades deben estar soportadas por código fuente. Vas a inidicar el commit que tiene
+>    el resultado final de la actividad.
+
+
+Codigo:
+
+```C
+#include <stdio.h>
+#include <pthread.h>
+
+// Función que se ejecutará en un hilo
+void *funcion_hilo(void *arg) {
+    char *mensaje = (char *)arg;
+    printf("%s\n", mensaje);
+    pthread_exit(NULL);
+}
+
+int main() {
+    pthread_t hilo1, hilo2;
+    char *mensaje1 = "Este es el hilo 1";
+    char *mensaje2 = "Este es el hilo 2";
+
+    // Creamos dos hilos, cada uno ejecutará la función funcion_hilo con un mensaje diferente
+    pthread_create(&hilo1, NULL, funcion_hilo, (void *)mensaje1);
+    pthread_create(&hilo2, NULL, funcion_hilo, (void *)mensaje2);
+
+    // Esperamos a que ambos hilos terminen
+    pthread_join(hilo1, NULL);
+    pthread_join(hilo2, NULL);
+
+    return 0;
+}
+
+
+```
+
+
+
+> 5. ¿Cuáles es el resultado de la actividad?
+
+El resultado del código será la impresión de los dos mensajes que son pasados como argumentos a los hilos. Los mensajes serán impresos en el orden en que los hilos completen su ejecución, lo cual puede variar en cada ejecución del programa debido a la naturaleza concurrente de los hilos
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/ad9d9dee-9558-4f17-b512-189b16aa237b)
+
+![image](https://github.com/jfUPB/bitacorassc2024-10-sebas890p/assets/110270011/1ab5d48b-c398-4c8e-ae90-8381b929f074)
+
+
+> 6. ¿Qué aprendiste de la actividad?
+
+Aprendi a llevar el concepto de hilo a una forma practica con la cual se pueden hacer programas que hagan 2 cosas distintas de forma simultanea
+
+
+
+> 1. ¿Qué tipo de actividad estás evidenciando?
+
+Estoy evidenciando el ejercicio 4 de la creacion de hilos 
+
+
+
+> 2. Describe la actividad y cuál es el propósito de esta y/o la pregunta que quieres investigar.
+
+En esta actividad lo que hare es responder las preguntas sobre el ejercicio 4 que estan planteadas luego hacer el analisis 
+
+
+
+> 3. Todas las actividades deben estar soportadas por código fuente. Vas a inidicar el commit que tiene
+>    el resultado final de la actividad.
+
+
+El codigo es :
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+
+struct threadParam_t
+{
+    char character;
+    int counter;
+};
+
+
+void* imprime(void *parg){
+    struct threadParam_t *pargTmp = (struct threadParam_t *)parg;
+    for(int i = 0; i < pargTmp->counter;i++){
+        printf("%c",pargTmp->character);
+    }
+    return NULL;
+}
+
+
+int main(int argc, char *argv[]){
+    pthread_t threadID1;
+    pthread_t threadID2;
+
+    struct threadParam_t threadParam1 = {'a',30000};
+    struct threadParam_t threadParam2 = {'b',20000};
+
+    pthread_create(&threadID1,NULL,&imprime, &threadParam1);
+    pthread_create(&threadID2,NULL,&imprime, &threadParam2);
+
+    exit(EXIT_SUCCESS);
+}
+```
+
+
+
+
+> 5. ¿Cuáles es el resultado de la actividad?
+
+El resultado de la actividad son las siguientes respuestas:
+
+
+¿Pudiste identificar cuáles son los hilos?
+
+Sí, en este programa se utilizan hilos para ejecutar dos flujos de instrucciones de manera concurrente la función main representa el hilo principal del programa, que es el hilo que se ejecuta automáticamente cuando se inicia el programa.
+
+El otro hilo se crea utilizando la función pthread_create() y ejecuta la función imprime_x este es el segundo hilo del programa.
+
+
+
+Explica cómo podría funciona este programa en el computador.
+
+
+Al ejecutar el programa, se inicia el hilo principal (main). Este hilo crea un segundo hilo utilizando pthread_create() que ejecutará la función imprime_x.
+
+Ambos hilos comienzan su ejecución de manera concurrente. El hilo principal entra en un bucle infinito en el que imprime repetidamente la letra "o" en la consola, mientras que el segundo hilo (imprime_x) también entra en un bucle infinito donde imprime repetidamente la letra "x".
+
+Dado que ambos hilos están ejecutando bucles infinitos, continuarán imprimiendo sus respectivos caracteres en la consola de forma simultánea y concurrente.
+
+El sistema operativo administra la ejecución de los hilos, permitiendo que ambos se ejecuten en el procesador de manera intercalada o concurrente según el esquema de planificación que utilice. Esto significa que mientras un hilo está esperando, el otro puede aprovechar el tiempo de CPU para su ejecución.
+
+La impresión de "o" y "x" en la consola se realizará de manera concurrente y no necesariamente en un patrón predecible. El resultado será una mezcla de "o" y "x" en la salida de la consola, dependiendo del orden en que los hilos tengan acceso al procesador.
+
+El programa continuará imprimiendo caracteres indefinidamente hasta que se detenga manualmente, ya sea por el usuario o mediante la finalización forzada del programa.
+
+
+
+> 6. ¿Qué aprendiste de la actividad?
+
+Mas que aprender en esta actividad reforce lo que hice en la actividad anterior con la creacion de hilos utilizando pthread_create()
+
+
 #### Sesión 3
 
 ### Semana 15
