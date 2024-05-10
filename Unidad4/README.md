@@ -358,6 +358,147 @@ Mas que aprender en esta actividad reforce lo que hice en la actividad anterior 
 
 #### Sesión 3
 
+> 1. ¿Qué tipo de actividad estás evidenciando?
+
+Estoy evidenciando el ejercicio 5 que se trata de analizar el codigo con 3 hilos 
+
+
+> 2. Describe la actividad y cuál es el propósito de esta y/o la pregunta que quieres investigar.
+
+
+En esta actividad voy a analizar y proponer una hipotesis sobre el codigo 
+
+
+
+> 3. Todas las actividades deben estar soportadas por código fuente. Vas a inidicar el commit que tiene
+>    el resultado final de la actividad.
+
+El codigo es :
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+
+struct threadParam_t
+{
+    char character;
+    int counter;
+};
+
+
+void* imprime(void *parg){
+    struct threadParam_t *pargTmp = (struct threadParam_t *)parg;
+    for(int i = 0; i < pargTmp->counter;i++){
+        printf("%c",pargTmp->character);
+    }
+    return NULL;
+}
+
+
+int main(int argc, char *argv[]){
+    pthread_t threadID1;
+    pthread_t threadID2;
+
+    struct threadParam_t threadParam1 = {'a',30000};
+    struct threadParam_t threadParam2 = {'b',20000};
+
+    pthread_create(&threadID1,NULL,&imprime, &threadParam1);
+    pthread_create(&threadID2,NULL,&imprime, &threadParam2);
+
+    exit(EXIT_SUCCESS);
+}
+
+
+````
+
+
+
+> 5. ¿Cuáles es el resultado de la actividad?
+
+La hipotesis que puede sacar es la siguiente:
+
+
+es que los hilos secundarios pueden no tener la oportunidad de completar su ejecución antes de que el hilo principal finalice debido a la falta de llamadas a pthread_join() en el hilo principal. Esto podría llevar a la finalización prematura de los hilos secundarios y posiblemente a la interrupción de su trabajo ademas que los hilos secundarios pueden no completar la impresion del numero total de caracteres especificado en la estructura threadParam_t, especialmente si el numero de iteraciones en el bucle es grande y la impresion de cada caracter es costosa en términos de tiempo de CPU. Esto podria resultar en una impresion incompleta o en la impresion de una cantidad menor de caracteres de lo esperado.
+
+
+
+> 6. ¿Qué aprendiste de la actividad?
+
+En esta actividad aprendi de lo importante que es la comunicacion entre los hilos para poder tener un fucionamiento simultaneo de todos. 
+
+
+
+> 1. ¿Qué tipo de actividad estás evidenciando?
+
+Estare evidenciando sobre el ejercicio 5 de nuevo esta vez la actividad sera corrigiendo el problema de la comunicacion en los 3 hilos 
+
+
+> 2. Describe la actividad y cuál es el propósito de esta y/o la pregunta que quieres investigar.
+
+
+El proposito de esta actividad es buscar la solucion al problema de comunicacion de los 3 hilos y asi terminen de forma simultanea
+
+
+> 3. Todas las actividades deben estar soportadas por código fuente. Vas a inidicar el commit que tiene
+>    el resultado final de la actividad.
+
+codigo:
+
+````c
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+
+struct threadParam_t
+{
+    char character;
+    int counter;
+};
+
+void* imprime(void *parg){
+    struct threadParam_t *pargTmp = (struct threadParam_t *)parg;
+    for(int i = 0; i < pargTmp->counter; i++){
+        printf("%c", pargTmp->character);
+    }
+    return NULL;
+}
+
+int main(int argc, char *argv[]){
+    pthread_t threadID1;
+    pthread_t threadID2;
+
+    struct threadParam_t threadParam1 = {'a', 30000};
+    struct threadParam_t threadParam2 = {'b', 20000};
+
+    // Se crean los hilos
+    pthread_create(&threadID1, NULL, &imprime, &threadParam1);
+    pthread_create(&threadID2, NULL, &imprime, &threadParam2);
+
+    // Se espera a que los hilos terminen
+    pthread_join(threadID1, NULL);
+    pthread_join(threadID2, NULL);
+
+    exit(EXIT_SUCCESS);
+}
+
+
+````
+
+
+
+> 5. ¿Cuáles es el resultado de la actividad?
+
+
+En este código, se han agregado llamadas a pthread_join() después de la creación de cada hilo secundario en el hilo principal. Estas llamadas aseguran que el hilo principal espere a que ambos hilos secundarios completen su ejecución antes de finalizar. Como resultado, los tres hilos (el hilo principal y los dos hilos secundarios) funcionarán simultáneamente y se completará la impresión de caracteres antes de que el programa finalice.
+
+
+
+> 6. ¿Qué aprendiste de la actividad?
+
+En esta actividad aprendi lo importante que son las llamadas a pthread_join() para el funcionamiento simultaneo de los hilos.
+
+
 ### Semana 15
 
 #### Sesión 1
